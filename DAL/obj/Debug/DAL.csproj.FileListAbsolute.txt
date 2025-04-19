@@ -1,0 +1,9 @@
+D:\Hung_WinForm\DAL\bin\Debug\DAL.dll
+D:\Hung_WinForm\DAL\bin\Debug\DAL.pdb
+D:\Hung_WinForm\DAL\bin\Debug\DTO.dll
+D:\Hung_WinForm\DAL\bin\Debug\DTO.pdb
+D:\Hung_WinForm\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+D:\Hung_WinForm\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+D:\Hung_WinForm\DAL\obj\Debug\DAL.csproj.Up2Date
+D:\Hung_WinForm\DAL\obj\Debug\DAL.dll
+D:\Hung_WinForm\DAL\obj\Debug\DAL.pdb

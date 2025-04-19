@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="RestaurantManagementDataSet8" targetNamespace="http://tempuri.org/RestaurantManagementDataSet8.xsd" xmlns:mstns="http://tempuri.org/RestaurantManagementDataSet8.xsd" xmlns="http://tempuri.org/RestaurantManagementDataSet8.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="RestaurantManagementConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="RestaurantManagementConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.GUI.Properties.Settings.GlobalReference.Default.RestaurantManagementConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="View_ChiTietHoaDonTableAdapter" GeneratorDataComponentClassName="View_ChiTietHoaDonTableAdapter" Name="View_ChiTietHoaDon" UserDataComponentName="View_ChiTietHoaDonTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="RestaurantManagementConnectionString (Settings)" DbObjectName="RestaurantManagement.dbo.View_ChiTietHoaDon" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT MaChiTietHoaDon, TenMonAn, SoLuong, Gia, ThanhTien FROM dbo.View_ChiTietHoaDon</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MaChiTietHoaDon" DataSetColumn="MaChiTietHoaDon" />
+              <Mapping SourceColumn="TenMonAn" DataSetColumn="TenMonAn" />
+              <Mapping SourceColumn="SoLuong" DataSetColumn="SoLuong" />
+              <Mapping SourceColumn="Gia" DataSetColumn="Gia" />
+              <Mapping SourceColumn="ThanhTien" DataSetColumn="ThanhTien" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="RestaurantManagementDataSet8" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="RestaurantManagementDataSet8" msprop:Generator_DataSetName="RestaurantManagementDataSet8">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="View_ChiTietHoaDon" msprop:Generator_RowEvHandlerName="View_ChiTietHoaDonRowChangeEventHandler" msprop:Generator_RowDeletedName="View_ChiTietHoaDonRowDeleted" msprop:Generator_RowDeletingName="View_ChiTietHoaDonRowDeleting" msprop:Generator_RowEvArgName="View_ChiTietHoaDonRowChangeEvent" msprop:Generator_TablePropName="View_ChiTietHoaDon" msprop:Generator_RowChangedName="View_ChiTietHoaDonRowChanged" msprop:Generator_RowChangingName="View_ChiTietHoaDonRowChanging" msprop:Generator_TableClassName="View_ChiTietHoaDonDataTable" msprop:Generator_RowClassName="View_ChiTietHoaDonRow" msprop:Generator_TableVarName="tableView_ChiTietHoaDon" msprop:Generator_UserTableName="View_ChiTietHoaDon">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MaChiTietHoaDon" msprop:Generator_ColumnPropNameInRow="MaChiTietHoaDon" msprop:Generator_ColumnPropNameInTable="MaChiTietHoaDonColumn" msprop:Generator_ColumnVarNameInTable="columnMaChiTietHoaDon" msprop:Generator_UserColumnName="MaChiTietHoaDon" type="xs:int" />
+              <xs:element name="TenMonAn" msprop:Generator_ColumnPropNameInRow="TenMonAn" msprop:Generator_ColumnPropNameInTable="TenMonAnColumn" msprop:Generator_ColumnVarNameInTable="columnTenMonAn" msprop:Generator_UserColumnName="TenMonAn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SoLuong" msprop:Generator_ColumnPropNameInRow="SoLuong" msprop:Generator_ColumnPropNameInTable="SoLuongColumn" msprop:Generator_ColumnVarNameInTable="columnSoLuong" msprop:Generator_UserColumnName="SoLuong" type="xs:int" />
+              <xs:element name="Gia" msprop:Generator_ColumnPropNameInRow="Gia" msprop:Generator_ColumnPropNameInTable="GiaColumn" msprop:Generator_ColumnVarNameInTable="columnGia" msprop:Generator_UserColumnName="Gia" type="xs:double" />
+              <xs:element name="ThanhTien" msprop:Generator_ColumnPropNameInRow="ThanhTien" msprop:Generator_ColumnPropNameInTable="ThanhTienColumn" msprop:Generator_ColumnVarNameInTable="columnThanhTien" msprop:Generator_UserColumnName="ThanhTien" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:View_ChiTietHoaDon" />
+      <xs:field xpath="mstns:MaChiTietHoaDon" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

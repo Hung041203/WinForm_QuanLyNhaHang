@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9BB8A99E-B7B1-4A6F-9375-FC58805EF6C8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>GUI</RootNamespace>
+    <AssemblyName>GUI</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FM_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FM_Main.Designer.cs">
+      <DependentUpon>FM_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FM_TaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FM_TaiKhoan.Designer.cs">
+      <DependentUpon>FM_TaiKhoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="RestaurantManagementDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RestaurantManagementDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RestaurantManagementDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RestaurantManagementDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RestaurantManagementDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RestaurantManagementDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RestaurantManagementDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RestaurantManagementDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RestaurantManagementDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RestaurantManagementDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RestaurantManagementDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RestaurantManagementDataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RestaurantManagementDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RestaurantManagementDataSet6.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RestaurantManagementDataSet7.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RestaurantManagementDataSet7.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RestaurantManagementDataSet8.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RestaurantManagementDataSet8.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="UC_DSChucVu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_DSChucVu.Designer.cs">
+      <DependentUpon>UC_DSChucVu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_DangKy.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_DangKy.Designer.cs">
+      <DependentUpon>UC_DangKy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_DangNhap.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_DangNhap.Designer.cs">
+      <DependentUpon>UC_DangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_DSHoaDon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_DSHoaDon.Designer.cs">
+      <DependentUpon>UC_DSHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_DSKhachHang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_DSKhachHang.Designer.cs">
+      <DependentUpon>UC_DSKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_DSKhuyenMai.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_DSKhuyenMai.Designer.cs">
+      <DependentUpon>UC_DSKhuyenMai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_DSNguyenLieu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_DSNguyenLieu.Designer.cs">
+      <DependentUpon>UC_DSNguyenLieu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_DoiMatKhau.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_DoiMatKhau.Designer.cs">
+      <DependentUpon>UC_DoiMatKhau.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_DSNhaCungCap.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_DSNhaCungCap.Designer.cs">
+      <DependentUpon>UC_DSNhaCungCap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_DSMonAn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_DSMonAn.Designer.cs">
+      <DependentUpon>UC_DSMonAn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_DSNhanVien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_DSNhanVien.Designer.cs">
+      <DependentUpon>UC_DSNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_ThongTinTaiKhoan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_ThongTinTaiKhoan.Designer.cs">
+      <DependentUpon>UC_ThongTinTaiKhoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_TrangChu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_TrangChu.Designer.cs">
+      <DependentUpon>UC_TrangChu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_DSChiTietHoaDon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_DSChiTietHoaDon.Designer.cs">
+      <DependentUpon>UC_DSChiTietHoaDon.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FM_Main.resx">
+      <DependentUpon>FM_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FM_TaiKhoan.resx">
+      <DependentUpon>FM_TaiKhoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_DSChucVu.resx">
+      <DependentUpon>UC_DSChucVu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_DangKy.resx">
+      <DependentUpon>UC_DangKy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_DangNhap.resx">
+      <DependentUpon>UC_DangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_DSHoaDon.resx">
+      <DependentUpon>UC_DSHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_DSKhachHang.resx">
+      <DependentUpon>UC_DSKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_DSKhuyenMai.resx">
+      <DependentUpon>UC_DSKhuyenMai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_DSNguyenLieu.resx">
+      <DependentUpon>UC_DSNguyenLieu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_DoiMatKhau.resx">
+      <DependentUpon>UC_DoiMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_DSNhaCungCap.resx">
+      <DependentUpon>UC_DSNhaCungCap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_DSMonAn.resx">
+      <DependentUpon>UC_DSMonAn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_DSNhanVien.resx">
+      <DependentUpon>UC_DSNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_ThongTinTaiKhoan.resx">
+      <DependentUpon>UC_ThongTinTaiKhoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_TrangChu.resx">
+      <DependentUpon>UC_TrangChu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_DSChiTietHoaDon.resx">
+      <DependentUpon>UC_DSChiTietHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="RestaurantManagementDataSet.xsc">
+      <DependentUpon>RestaurantManagementDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="RestaurantManagementDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RestaurantManagementDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RestaurantManagementDataSet.xss">
+      <DependentUpon>RestaurantManagementDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="RestaurantManagementDataSet1.xsc">
+      <DependentUpon>RestaurantManagementDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="RestaurantManagementDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RestaurantManagementDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RestaurantManagementDataSet1.xss">
+      <DependentUpon>RestaurantManagementDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="RestaurantManagementDataSet2.xsc">
+      <DependentUpon>RestaurantManagementDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="RestaurantManagementDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RestaurantManagementDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RestaurantManagementDataSet2.xss">
+      <DependentUpon>RestaurantManagementDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="RestaurantManagementDataSet3.xsc">
+      <DependentUpon>RestaurantManagementDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="RestaurantManagementDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RestaurantManagementDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RestaurantManagementDataSet3.xss">
+      <DependentUpon>RestaurantManagementDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="RestaurantManagementDataSet4.xsc">
+      <DependentUpon>RestaurantManagementDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="RestaurantManagementDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RestaurantManagementDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RestaurantManagementDataSet4.xss">
+      <DependentUpon>RestaurantManagementDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="RestaurantManagementDataSet5.xsc">
+      <DependentUpon>RestaurantManagementDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="RestaurantManagementDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RestaurantManagementDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RestaurantManagementDataSet5.xss">
+      <DependentUpon>RestaurantManagementDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="RestaurantManagementDataSet6.xsc">
+      <DependentUpon>RestaurantManagementDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="RestaurantManagementDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RestaurantManagementDataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RestaurantManagementDataSet6.xss">
+      <DependentUpon>RestaurantManagementDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="RestaurantManagementDataSet7.xsc">
+      <DependentUpon>RestaurantManagementDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="RestaurantManagementDataSet7.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RestaurantManagementDataSet7.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RestaurantManagementDataSet7.xss">
+      <DependentUpon>RestaurantManagementDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="RestaurantManagementDataSet8.xsc">
+      <DependentUpon>RestaurantManagementDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="RestaurantManagementDataSet8.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RestaurantManagementDataSet8.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RestaurantManagementDataSet8.xss">
+      <DependentUpon>RestaurantManagementDataSet8.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{098eeed4-0ff6-4707-a15f-a7da13f2b48a}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{3aeec0cb-b6d7-4bc0-b00f-5e21935e96cd}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackGround.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DangKy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HeThong.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DangNhap.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ChinhSuaThongTin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ThongTin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DangXuat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TrangChu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Banner.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

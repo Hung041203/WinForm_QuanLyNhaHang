@@ -1,0 +1,11 @@
+D:\Hung_WinForm\BLL\bin\Debug\BLL.dll
+D:\Hung_WinForm\BLL\bin\Debug\BLL.pdb
+D:\Hung_WinForm\BLL\bin\Debug\DAL.dll
+D:\Hung_WinForm\BLL\bin\Debug\DTO.dll
+D:\Hung_WinForm\BLL\bin\Debug\DAL.pdb
+D:\Hung_WinForm\BLL\bin\Debug\DTO.pdb
+D:\Hung_WinForm\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+D:\Hung_WinForm\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+D:\Hung_WinForm\BLL\obj\Debug\BLL.csproj.Up2Date
+D:\Hung_WinForm\BLL\obj\Debug\BLL.dll
+D:\Hung_WinForm\BLL\obj\Debug\BLL.pdb

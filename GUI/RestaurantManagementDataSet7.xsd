@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="RestaurantManagementDataSet7" targetNamespace="http://tempuri.org/RestaurantManagementDataSet7.xsd" xmlns:mstns="http://tempuri.org/RestaurantManagementDataSet7.xsd" xmlns="http://tempuri.org/RestaurantManagementDataSet7.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="RestaurantManagementConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="RestaurantManagementConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.GUI.Properties.Settings.GlobalReference.Default.RestaurantManagementConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="View_HoaDonTableAdapter" GeneratorDataComponentClassName="View_HoaDonTableAdapter" Name="View_HoaDon" UserDataComponentName="View_HoaDonTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="RestaurantManagementConnectionString (Settings)" DbObjectName="RestaurantManagement.dbo.View_HoaDon" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT MaHoaDon, TenNhanVien, TenKhachHang, NgayLap, TongTien FROM dbo.View_HoaDon</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MaHoaDon" DataSetColumn="MaHoaDon" />
+              <Mapping SourceColumn="TenNhanVien" DataSetColumn="TenNhanVien" />
+              <Mapping SourceColumn="TenKhachHang" DataSetColumn="TenKhachHang" />
+              <Mapping SourceColumn="NgayLap" DataSetColumn="NgayLap" />
+              <Mapping SourceColumn="TongTien" DataSetColumn="TongTien" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="RestaurantManagementDataSet7" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="RestaurantManagementDataSet7" msprop:Generator_DataSetName="RestaurantManagementDataSet7">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="View_HoaDon" msprop:Generator_RowEvHandlerName="View_HoaDonRowChangeEventHandler" msprop:Generator_RowDeletedName="View_HoaDonRowDeleted" msprop:Generator_RowDeletingName="View_HoaDonRowDeleting" msprop:Generator_RowEvArgName="View_HoaDonRowChangeEvent" msprop:Generator_TablePropName="View_HoaDon" msprop:Generator_RowChangedName="View_HoaDonRowChanged" msprop:Generator_RowChangingName="View_HoaDonRowChanging" msprop:Generator_TableClassName="View_HoaDonDataTable" msprop:Generator_RowClassName="View_HoaDonRow" msprop:Generator_TableVarName="tableView_HoaDon" msprop:Generator_UserTableName="View_HoaDon">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MaHoaDon" msprop:Generator_ColumnPropNameInRow="MaHoaDon" msprop:Generator_ColumnPropNameInTable="MaHoaDonColumn" msprop:Generator_ColumnVarNameInTable="columnMaHoaDon" msprop:Generator_UserColumnName="MaHoaDon" type="xs:int" />
+              <xs:element name="TenNhanVien" msprop:Generator_ColumnPropNameInRow="TenNhanVien" msprop:Generator_ColumnPropNameInTable="TenNhanVienColumn" msprop:Generator_ColumnVarNameInTable="columnTenNhanVien" msprop:Generator_UserColumnName="TenNhanVien">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TenKhachHang" msprop:Generator_ColumnPropNameInRow="TenKhachHang" msprop:Generator_ColumnPropNameInTable="TenKhachHangColumn" msprop:Generator_ColumnVarNameInTable="columnTenKhachHang" msprop:Generator_UserColumnName="TenKhachHang">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NgayLap" msprop:Generator_ColumnPropNameInRow="NgayLap" msprop:Generator_ColumnPropNameInTable="NgayLapColumn" msprop:Generator_ColumnVarNameInTable="columnNgayLap" msprop:Generator_UserColumnName="NgayLap" type="xs:dateTime" />
+              <xs:element name="TongTien" msprop:Generator_ColumnPropNameInRow="TongTien" msprop:Generator_ColumnPropNameInTable="TongTienColumn" msprop:Generator_ColumnVarNameInTable="columnTongTien" msprop:Generator_UserColumnName="TongTien" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:View_HoaDon" />
+      <xs:field xpath="mstns:MaHoaDon" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
