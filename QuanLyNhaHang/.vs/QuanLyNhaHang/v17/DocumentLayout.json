@@ -19,7 +19,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
@@ -32,8 +32,15 @@
               "ViewState": "AgIAAGEAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-09T17:46:59.166Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
               "$type": "Document",
@@ -43,7 +50,7 @@
               "RelativeDocumentMoniker": "..\\GUI\\UC_DangKy.cs",
               "ToolTip": "D:\\Hung_WinForm\\GUI\\UC_DangKy.cs",
               "RelativeToolTip": "..\\GUI\\UC_DangKy.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAACcAAABEAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAuwCcAAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-11T13:01:05.601Z",
               "EditorCaption": ""
@@ -57,16 +64,7 @@
               "ToolTip": "D:\\Hung_WinForm\\GUI\\UC_DangKy.cs [Design]",
               "RelativeToolTip": "..\\GUI\\UC_DangKy.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-11T13:01:01.362Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+              "WhenOpened": "2025-04-11T13:01:01.362Z"
             }
           ]
         }

@@ -1,5 +1,42 @@
-﻿-- DangKy
+﻿-- Doi MatKhau
+CREATE PROCEDURE proc_DoiMatKhau
+	@TaiKhoan NVARCHAR(MAX),
+	@MatKhauMoi NVARCHAR(MAX)
+AS
+BEGIN 
+	UPDATE TaiKhoanNhanViens
+	SET MatKhau = @MatKhauMoi
+	WHERE TaiKhoan = @TaiKhoan
+END
 
+-- Lay MatKhau
+CREATE PROCEDURE proc_LayMatKhau
+	@TaiKhoan NVARCHAR(MAX)
+AS
+BEGIN
+	SELECT MatKhau FROM TaiKhoanNhanViens WHERE TaiKhoan = @TaiKhoan
+END
+
+-- DangNhap
+CREATE PROCEDURE proc_DangNhap
+	@TaiKhoan NVARCHAR(MAX),
+	@MatKhau NVARCHAR(MAX)
+AS
+BEGIN
+	SELECT * FROM TaiKhoanNhanViens WHERE TaiKhoan = @TaiKhoan AND MatKhau = @MatKhau
+END
+
+-- Lay Thong Tin Nhan Vien
+CREATE PROCEDURE proc_LayThongTin
+AS
+BEGIN
+	SELECT *
+	FROM TaiKhoanNhanViens tk
+	INNER JOIN NhanViens nv ON tk.MaNhanVien = nv.MaNhanVien
+	INNER JOIN ChucVus cv ON nv.MaChucVu = cv.MaChucVu
+END
+
+-- DangKy
 CREATE PROCEDURE proc_DangKy
     @MaNhanVien INT,
     @TaiKhoan NVARCHAR(MAX),
@@ -25,7 +62,7 @@ BEGIN
         MatKhau = @MatKhau
     WHERE MaNhanVien = @MaNhanVien;
 END
-
+GO
 
 
 -- Nhan Vien
@@ -390,8 +427,7 @@ VALUES
 
 DBCC CHECKIDENT ('ChiTietHoaDons', RESEED, 0)
 
-SELECT * From ChiTietHoaDons
-Delete From ChiTietHoaDons
+-- Chi Tiet Hoa Don
 
 CREATE VIEW  View_ChiTietHoaDon AS
 SELECT 
@@ -460,8 +496,6 @@ END
 
 
 
-
-
 -- TRIGGER
 
 CREATE TRIGGER trg_UpdateThanhTien
@@ -478,9 +512,6 @@ BEGIN
     INNER JOIN MonAns ma ON i.MaMonAn = ma.MaMonAn;
 END;
 
-SELECT * FROM ChiTietHoaDons
-SELECT * FROM MonAns
-DELETE FROM ChiTietHoaDons
 DBCC CHECKIDENT ('ChiTietHoaDons', RESEED, 0)
 
 INSERT INTO ChiTietHoaDons (MaHoaDon, MaMonAn, SoLuong, ThanhTien)
