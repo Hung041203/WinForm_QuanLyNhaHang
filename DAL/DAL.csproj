@@ -46,10 +46,13 @@
     <Compile Include="DSHoaDonDAL.cs" />
     <Compile Include="DSKhachHangDAL.cs" />
     <Compile Include="DSKhuyenMaiDAL.cs" />
+    <Compile Include="DSLuuTruDAL.cs" />
     <Compile Include="DSMonAnDAL.cs" />
     <Compile Include="DSNguyenLieuDAL.cs" />
     <Compile Include="DSNhaCungCapDAL.cs" />
     <Compile Include="DSNhanVienDAL.cs" />
+    <Compile Include="DSNhapKhoDAL.cs" />
+    <Compile Include="DSXuatKhoDAL.cs" />
     <Compile Include="SqlConnectionData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TaiKhoanDAL.cs" />

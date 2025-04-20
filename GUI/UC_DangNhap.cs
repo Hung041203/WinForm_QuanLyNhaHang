@@ -87,7 +87,6 @@ namespace GUI
             {
                 Properties.Settings.Default.Username = "";
             }
-
             Properties.Settings.Default.Save();
 
             MessageBox.Show("Bạn đã đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

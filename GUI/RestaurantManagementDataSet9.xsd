@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="RestaurantManagementDataSet9" targetNamespace="http://tempuri.org/RestaurantManagementDataSet9.xsd" xmlns:mstns="http://tempuri.org/RestaurantManagementDataSet9.xsd" xmlns="http://tempuri.org/RestaurantManagementDataSet9.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="RestaurantManagementConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="RestaurantManagementConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.GUI.Properties.Settings.GlobalReference.Default.RestaurantManagementConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="View_NhapKhoTableAdapter" GeneratorDataComponentClassName="View_NhapKhoTableAdapter" Name="View_NhapKho" UserDataComponentName="View_NhapKhoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="RestaurantManagementConnectionString (Settings)" DbObjectName="RestaurantManagement.dbo.View_NhapKho" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT MaNhapKho, TenNhanVien, TenNguyenLieu, Gia, NgayNhap, SoLuong, TongTien, SoNgayHetHan FROM dbo.View_NhapKho</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MaNhapKho" DataSetColumn="MaNhapKho" />
+              <Mapping SourceColumn="TenNhanVien" DataSetColumn="TenNhanVien" />
+              <Mapping SourceColumn="TenNguyenLieu" DataSetColumn="TenNguyenLieu" />
+              <Mapping SourceColumn="Gia" DataSetColumn="Gia" />
+              <Mapping SourceColumn="NgayNhap" DataSetColumn="NgayNhap" />
+              <Mapping SourceColumn="SoLuong" DataSetColumn="SoLuong" />
+              <Mapping SourceColumn="TongTien" DataSetColumn="TongTien" />
+              <Mapping SourceColumn="SoNgayHetHan" DataSetColumn="SoNgayHetHan" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="RestaurantManagementDataSet9" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="RestaurantManagementDataSet9" msprop:Generator_DataSetName="RestaurantManagementDataSet9">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="View_NhapKho" msprop:Generator_RowEvHandlerName="View_NhapKhoRowChangeEventHandler" msprop:Generator_RowDeletedName="View_NhapKhoRowDeleted" msprop:Generator_RowDeletingName="View_NhapKhoRowDeleting" msprop:Generator_RowEvArgName="View_NhapKhoRowChangeEvent" msprop:Generator_TablePropName="View_NhapKho" msprop:Generator_RowChangedName="View_NhapKhoRowChanged" msprop:Generator_RowChangingName="View_NhapKhoRowChanging" msprop:Generator_TableClassName="View_NhapKhoDataTable" msprop:Generator_RowClassName="View_NhapKhoRow" msprop:Generator_TableVarName="tableView_NhapKho" msprop:Generator_UserTableName="View_NhapKho">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MaNhapKho" msprop:Generator_ColumnPropNameInRow="MaNhapKho" msprop:Generator_ColumnPropNameInTable="MaNhapKhoColumn" msprop:Generator_ColumnVarNameInTable="columnMaNhapKho" msprop:Generator_UserColumnName="MaNhapKho" type="xs:int" />
+              <xs:element name="TenNhanVien" msprop:Generator_ColumnPropNameInRow="TenNhanVien" msprop:Generator_ColumnPropNameInTable="TenNhanVienColumn" msprop:Generator_ColumnVarNameInTable="columnTenNhanVien" msprop:Generator_UserColumnName="TenNhanVien">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TenNguyenLieu" msprop:Generator_ColumnPropNameInRow="TenNguyenLieu" msprop:Generator_ColumnPropNameInTable="TenNguyenLieuColumn" msprop:Generator_ColumnVarNameInTable="columnTenNguyenLieu" msprop:Generator_UserColumnName="TenNguyenLieu">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Gia" msprop:Generator_ColumnPropNameInRow="Gia" msprop:Generator_ColumnPropNameInTable="GiaColumn" msprop:Generator_ColumnVarNameInTable="columnGia" msprop:Generator_UserColumnName="Gia" type="xs:double" />
+              <xs:element name="NgayNhap" msprop:Generator_ColumnPropNameInRow="NgayNhap" msprop:Generator_ColumnPropNameInTable="NgayNhapColumn" msprop:Generator_ColumnVarNameInTable="columnNgayNhap" msprop:Generator_UserColumnName="NgayNhap" type="xs:dateTime" />
+              <xs:element name="SoLuong" msprop:Generator_ColumnPropNameInRow="SoLuong" msprop:Generator_ColumnPropNameInTable="SoLuongColumn" msprop:Generator_ColumnVarNameInTable="columnSoLuong" msprop:Generator_UserColumnName="SoLuong" type="xs:int" />
+              <xs:element name="TongTien" msprop:Generator_ColumnPropNameInRow="TongTien" msprop:Generator_ColumnPropNameInTable="TongTienColumn" msprop:Generator_ColumnVarNameInTable="columnTongTien" msprop:Generator_UserColumnName="TongTien" type="xs:double" />
+              <xs:element name="SoNgayHetHan" msprop:Generator_ColumnPropNameInRow="SoNgayHetHan" msprop:Generator_ColumnPropNameInTable="SoNgayHetHanColumn" msprop:Generator_ColumnVarNameInTable="columnSoNgayHetHan" msprop:Generator_UserColumnName="SoNgayHetHan" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:View_NhapKho" />
+      <xs:field xpath="mstns:MaNhapKho" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

@@ -30,21 +30,18 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dGV_DSHoaDon = new System.Windows.Forms.DataGridView();
-            this.label8 = new System.Windows.Forms.Label();
-            this.restaurantManagementDataSet7 = new GUI.RestaurantManagementDataSet7();
-            this.viewHoaDonBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.view_HoaDonTableAdapter = new GUI.RestaurantManagementDataSet7TableAdapters.View_HoaDonTableAdapter();
             this.maHoaDonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tenNhanVienDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tenKhachHangDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ngayLapDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tongTienDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.viewHoaDonBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.restaurantManagementDataSet7 = new GUI.RestaurantManagementDataSet7();
+            this.label8 = new System.Windows.Forms.Label();
+            this.view_HoaDonTableAdapter = new GUI.RestaurantManagementDataSet7TableAdapters.View_HoaDonTableAdapter();
             this.panel7 = new System.Windows.Forms.Panel();
             this.btnHuyBo = new System.Windows.Forms.Button();
             this.btnReload = new System.Windows.Forms.Button();
-            this.btnLuu = new System.Windows.Forms.Button();
-            this.btnThem = new System.Windows.Forms.Button();
-            this.btnSua = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox_MaHoaDon = new System.Windows.Forms.TextBox();
@@ -60,9 +57,12 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.comboBox_TenKhachHang = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnThem = new System.Windows.Forms.Button();
+            this.btnLuu = new System.Windows.Forms.Button();
+            this.btnSua = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dGV_DSHoaDon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.restaurantManagementDataSet7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewHoaDonBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.restaurantManagementDataSet7)).BeginInit();
             this.panel7.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -89,30 +89,6 @@
             this.dGV_DSHoaDon.Size = new System.Drawing.Size(900, 550);
             this.dGV_DSHoaDon.TabIndex = 0;
             this.dGV_DSHoaDon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGV_DSHoaDon_CellClick);
-            // 
-            // label8
-            // 
-            this.label8.BackColor = System.Drawing.Color.Olive;
-            this.label8.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label8.Location = new System.Drawing.Point(545, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(10, 690);
-            this.label8.TabIndex = 10;
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // restaurantManagementDataSet7
-            // 
-            this.restaurantManagementDataSet7.DataSetName = "RestaurantManagementDataSet7";
-            this.restaurantManagementDataSet7.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // viewHoaDonBindingSource
-            // 
-            this.viewHoaDonBindingSource.DataMember = "View_HoaDon";
-            this.viewHoaDonBindingSource.DataSource = this.restaurantManagementDataSet7;
-            // 
-            // view_HoaDonTableAdapter
-            // 
-            this.view_HoaDonTableAdapter.ClearBeforeFill = true;
             // 
             // maHoaDonDataGridViewTextBoxColumn
             // 
@@ -154,6 +130,30 @@
             this.tongTienDataGridViewTextBoxColumn.Name = "tongTienDataGridViewTextBoxColumn";
             this.tongTienDataGridViewTextBoxColumn.Width = 150;
             // 
+            // viewHoaDonBindingSource
+            // 
+            this.viewHoaDonBindingSource.DataMember = "View_HoaDon";
+            this.viewHoaDonBindingSource.DataSource = this.restaurantManagementDataSet7;
+            // 
+            // restaurantManagementDataSet7
+            // 
+            this.restaurantManagementDataSet7.DataSetName = "RestaurantManagementDataSet7";
+            this.restaurantManagementDataSet7.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // label8
+            // 
+            this.label8.BackColor = System.Drawing.Color.Olive;
+            this.label8.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.label8.Location = new System.Drawing.Point(545, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(10, 690);
+            this.label8.TabIndex = 10;
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // view_HoaDonTableAdapter
+            // 
+            this.view_HoaDonTableAdapter.ClearBeforeFill = true;
+            // 
             // panel7
             // 
             this.panel7.Controls.Add(this.btnHuyBo);
@@ -188,42 +188,6 @@
             this.btnReload.TabIndex = 26;
             this.btnReload.Text = "Reload";
             this.btnReload.UseVisualStyleBackColor = true;
-            // 
-            // btnLuu
-            // 
-            this.btnLuu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLuu.Location = new System.Drawing.Point(195, 22);
-            this.btnLuu.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(120, 60);
-            this.btnLuu.TabIndex = 24;
-            this.btnLuu.Text = "Lưu";
-            this.btnLuu.UseVisualStyleBackColor = true;
-            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
-            // 
-            // btnThem
-            // 
-            this.btnThem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThem.Location = new System.Drawing.Point(0, 22);
-            this.btnThem.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(120, 60);
-            this.btnThem.TabIndex = 22;
-            this.btnThem.Text = "Thêm";
-            this.btnThem.UseVisualStyleBackColor = true;
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
-            // 
-            // btnSua
-            // 
-            this.btnSua.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSua.Location = new System.Drawing.Point(390, 22);
-            this.btnSua.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(120, 60);
-            this.btnSua.TabIndex = 23;
-            this.btnSua.Text = "Sửa";
-            this.btnSua.UseVisualStyleBackColor = true;
-            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // panel1
             // 
@@ -399,6 +363,42 @@
             this.label2.Text = "Tên khách hàng";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // btnThem
+            // 
+            this.btnThem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThem.Location = new System.Drawing.Point(0, 22);
+            this.btnThem.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(120, 60);
+            this.btnThem.TabIndex = 22;
+            this.btnThem.Text = "Thêm";
+            this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+            // 
+            // btnLuu
+            // 
+            this.btnLuu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLuu.Location = new System.Drawing.Point(195, 22);
+            this.btnLuu.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.btnLuu.Name = "btnLuu";
+            this.btnLuu.Size = new System.Drawing.Size(120, 60);
+            this.btnLuu.TabIndex = 24;
+            this.btnLuu.Text = "Lưu";
+            this.btnLuu.UseVisualStyleBackColor = true;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
+            // 
+            // btnSua
+            // 
+            this.btnSua.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSua.Location = new System.Drawing.Point(390, 22);
+            this.btnSua.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(120, 60);
+            this.btnSua.TabIndex = 23;
+            this.btnSua.Text = "Sửa";
+            this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
+            // 
             // UC_DSHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -415,8 +415,8 @@
             this.Name = "UC_DSHoaDon";
             this.Size = new System.Drawing.Size(1478, 690);
             ((System.ComponentModel.ISupportInitialize)(this.dGV_DSHoaDon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.restaurantManagementDataSet7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewHoaDonBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.restaurantManagementDataSet7)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -447,9 +447,6 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Button btnHuyBo;
         private System.Windows.Forms.Button btnReload;
-        private System.Windows.Forms.Button btnLuu;
-        private System.Windows.Forms.Button btnThem;
-        private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox_MaHoaDon;
@@ -465,5 +462,8 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ComboBox comboBox_TenKhachHang;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnLuu;
+        private System.Windows.Forms.Button btnThem;
+        private System.Windows.Forms.Button btnSua;
     }
 }

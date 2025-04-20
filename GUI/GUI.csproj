@@ -75,6 +75,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RestaurantManagementDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="RestaurantManagementDataSet10.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RestaurantManagementDataSet10.xsd</DependentUpon>
+    </Compile>
     <Compile Include="RestaurantManagementDataSet2.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -109,6 +114,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RestaurantManagementDataSet8.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RestaurantManagementDataSet9.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RestaurantManagementDataSet9.xsd</DependentUpon>
     </Compile>
     <Compile Include="UC_DSChucVu.cs">
       <SubType>UserControl</SubType>
@@ -176,6 +186,18 @@
     <Compile Include="UC_DSNhanVien.Designer.cs">
       <DependentUpon>UC_DSNhanVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="UC_DSNhapKho.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_DSNhapKho.Designer.cs">
+      <DependentUpon>UC_DSNhapKho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_DSXuatKho.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_DSXuatKho.Designer.cs">
+      <DependentUpon>UC_DSXuatKho.cs</DependentUpon>
+    </Compile>
     <Compile Include="UC_ThongTinTaiKhoan.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -238,6 +260,12 @@
     <EmbeddedResource Include="UC_DSNhanVien.resx">
       <DependentUpon>UC_DSNhanVien.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UC_DSNhapKho.resx">
+      <DependentUpon>UC_DSNhapKho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_DSXuatKho.resx">
+      <DependentUpon>UC_DSXuatKho.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UC_ThongTinTaiKhoan.resx">
       <DependentUpon>UC_ThongTinTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
@@ -277,6 +305,17 @@
     </None>
     <None Include="RestaurantManagementDataSet1.xss">
       <DependentUpon>RestaurantManagementDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="RestaurantManagementDataSet10.xsc">
+      <DependentUpon>RestaurantManagementDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="RestaurantManagementDataSet10.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RestaurantManagementDataSet10.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RestaurantManagementDataSet10.xss">
+      <DependentUpon>RestaurantManagementDataSet10.xsd</DependentUpon>
     </None>
     <None Include="RestaurantManagementDataSet2.xsc">
       <DependentUpon>RestaurantManagementDataSet2.xsd</DependentUpon>
@@ -354,6 +393,17 @@
     </None>
     <None Include="RestaurantManagementDataSet8.xss">
       <DependentUpon>RestaurantManagementDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="RestaurantManagementDataSet9.xsc">
+      <DependentUpon>RestaurantManagementDataSet9.xsd</DependentUpon>
+    </None>
+    <None Include="RestaurantManagementDataSet9.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RestaurantManagementDataSet9.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RestaurantManagementDataSet9.xss">
+      <DependentUpon>RestaurantManagementDataSet9.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

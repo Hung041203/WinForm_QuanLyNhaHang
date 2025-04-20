@@ -341,6 +341,8 @@ BEGIN
     WHERE MaKhuyenMai = @MaKhuyenMai;
 END
 
+DROP PROCEDURE proc_CapNhatThongTinKhuyenMai
+
 CREATE PROCEDURE proc_ThemKhuyenMai
     @TenKhuyenMai NVARCHAR(100),
     @DaDung BIT,
@@ -371,33 +373,35 @@ FROM HoaDons hd
 INNER JOIN NhanViens nv ON hd.MaNhanVien = nv.MaNhanVien
 INNER JOIN KhachHangs kh ON hd.MaKhachHang = kh.MaKhachHang
 
+---
 CREATE PROCEDURE proc_CapNhatThongTinHoaDon
     @MaNhanVien INT,
     @MaHoaDon INT,
     @MaKhachHang INT,
-    @NgayLap DATETIME2(7),
-	@TongTien INT
+    @NgayLap DATETIME2(7)
 AS
 BEGIN
     UPDATE HoaDons
     SET 
         MaNhanVien = @MaNhanVien,
         MaKhachHang = @MaKhachHang,
-        NgayLap = @NgayLap,
-		TongTien = TongTien
+        NgayLap = @NgayLap
     WHERE MaHoaDon = @MaHoaDon;
 END
 
 CREATE PROCEDURE proc_ThemHoaDon
     @MaNhanVien INT,
     @MaKhachHang INT,
-    @NgayLap DATETIME2(7),
-	@TongTien INT
+    @NgayLap DATETIME2(7)
 AS
 BEGIN
     INSERT INTO HoaDons (MaNhanVien, MaKhachHang, NgayLap, TongTien)
-    VALUES (@MaNhanVien, @MaKhachHang, @NgayLap, @TongTien);
+    VALUES (@MaNhanVien, @MaKhachHang, @NgayLap, 0);
 END
+
+DROP PROCEDURE proc_CapNhatThongTinHoaDon
+DROP PROCEDURE proc_ThemHoaDon
+---
 
 CREATE PROCEDURE proc_XoaHoaDon
     @MaHoaDon INT
@@ -418,9 +422,6 @@ VALUES
 (1, 2, '2025-04-03', 387000),
 (3, 2, '2025-04-04', 72000),
 (2, 1, '2025-04-05', 510000);
-
-INSERT INTO [dbo].[HoaDons] ([MaNhanVien], [MaKhachHang], [NgayLap], [TongTien])
-VALUES 
 (1, 2, '2025-04-06', 198000),
 (5, 1, '2025-04-07', 325000),
 (4, 2, '2025-04-08', 274000);
@@ -488,13 +489,186 @@ BEGIN
     DELETE FROM ChiTietHoaDons WHERE MaChiTietHoaDon = @MaChiTietHoaDon;
 END
 
+-- NhapKho
+CREATE PROCEDURE proc_CapNhatThongTinNhapKho
+	@MaNhapKho INT,
+    @SoLuong INT
+AS
+BEGIN
+    UPDATE NhapKhos
+    SET 
+        SoLuong = @SoLuong
+    WHERE MaNhapKho = @MaNhapKho;
+END
+
+CREATE PROCEDURE proc_ThemNhapKho
+	@MaNhanVien INT,
+    @MaNguyenLieu INT,
+    @SoLuong INT,
+	@NgayNhap DATETIME2(7),
+	@SoNgayHetHan INT
+AS
+BEGIN
+    INSERT INTO NhapKhos(MaNhanVien, MaNguyenLieu, NgayNhap, SoLuong, TongTien, SoNgayHetHan)
+    VALUES (@MaNhanVien, @MaNguyenLieu, @NgayNhap, @SoLuong, 0, @SoNgayHetHan);
+END
+
+DROP PROCEDURE proc_ThemNhapKho
+
+SELECT * FROM View_NhapKho
+SELECT * FROM NhanViens
+SELECT * FROM NguyenLieus
+
+CREATE PROCEDURE proc_XoaNhapKho
+    @MaNhapKho INT
+AS
+BEGIN
+    DELETE FROM NhapKhos WHERE MaNhapKho = @MaNhapKho;
+END
+
+-- XuatKho
+CREATE PROCEDURE proc_CapNhatThongTinXuatKho
+	@MaXuatKho INT,
+    @SoLuong INT,
+	@NguyenNhan NVARCHAR(MAX)
+AS
+BEGIN
+    UPDATE XuatKhos
+    SET 
+        SoLuong = @SoLuong,
+		NguyenNhanXuatKho = @NguyenNhan 
+    WHERE MaXuatKho = @MaXuatKho;
+END
+
+EXEC proc_CapNhatThongTinXuatKho @MaXuatKho = 1, @SoLuong = 10, @NguyenNhan = 'Nguyên nhân test';
+
+CREATE PROCEDURE proc_ThemXuatKho
+	@MaNhanVien INT,
+    @MaNguyenLieu INT,
+    @SoLuong INT,
+	@NgayXuat DATETIME2(7),
+	@NguyenNhan NVARCHAR(MAX),
+	@MaLuuTru INT
+AS
+BEGIN
+    INSERT INTO XuatKhos(MaNhanVien, MaNguyenLieu, SoLuong, NgayXuat, NguyenNhanXuatKho, MaLuuTru)
+    VALUES (@MaNhanVien, @MaNguyenLieu, @SoLuong, @NgayXuat, @NguyenNhan, @MaLuuTru);
+END
+
+CREATE PROCEDURE proc_XoaXuatKho
+    @MaXuatKho INT
+AS
+BEGIN
+    DELETE FROM XuatKhos WHERE MaXuatKho = @MaXuatKho;
+END
+
+
+-- LuuTru
+CREATE PROCEDURE proc_CapNhatThongTinLuuTru
+	@MaLuuTru INT,
+    @SoLuong INT,
+	@NgayHetHan DATETIME2(7)
+AS
+BEGIN
+    UPDATE LuuTrus
+    SET 
+        SoLuong = @SoLuong,
+		NgayHetHan = @NgayHetHan 
+    WHERE MaLuuTru = @MaLuuTru;
+END
+
+CREATE PROCEDURE proc_ThemLuuTru
+	@MaNhanVien INT,
+    @MaNguyenLieu INT,
+    @SoLuong INT,
+	@NgayHetHan DATETIME2(7)
+AS
+BEGIN
+    INSERT INTO LuuTrus(MaNhanVien, MaNguyenLieu, SoLuong, NgayHetHan)
+    VALUES (@MaNhanVien, @MaNguyenLieu, @SoLuong, @NgayHetHan);
+END
+
+CREATE PROCEDURE proc_XoaLuuTru
+    @MaLuuTru INT
+AS
+BEGIN
+    DELETE FROM LuuTrus WHERE MaLuuTru = @MaLuuTru;
+END
+
+
+---------------------------- VIEW
+--view nhap kho
+CREATE VIEW View_NhapKho AS
+SELECT 
+	nk.MaNhapKho,
+	nv.TenNhanVien,
+	nl.TenNguyenLieu,
+	nl.Gia,
+	nk.NgayNhap,
+	nk.SoLuong,
+	nk.TongTien,
+	nk.SoNgayHetHan
+FROM NhapKhos nk
+INNER JOIN NhanViens nv ON nk.MaNhanVien = nv.MaNhanVien
+INNER JOIN NguyenLieus nl ON nl.MaNguyenLieu = nk.MaNguyenLieu
+
+--view xuat kho
+CREATE VIEW View_XuatKho AS
+SELECT 
+	nk.MaXuatKho,
+	nv.TenNhanVien,
+	nl.TenNguyenLieu,
+	nk.NgayXuat,
+	nk.SoLuong,
+	nk.NguyenNhanXuatKho,
+	nk.MaLuuTru
+FROM XuatKhos nk
+INNER JOIN NhanViens nv ON nk.MaNhanVien = nv.MaNhanVien
+INNER JOIN NguyenLieus nl ON nl.MaNguyenLieu = nk.MaNguyenLieu
+
+--view luu tru
+CREATE VIEW View_LuuTru AS
+SELECT 
+	lt.MaLuuTru,
+	lt.MaNguyenLieu,
+	nv.TenNhanVien,
+	nl.TenNguyenLieu,
+	lt.NgayHetHan,
+	lt.SoLuong
+FROM LuuTrus lt
+INNER JOIN NhanViens nv ON lt.MaNhanVien = nv.MaNhanVien
+INNER JOIN NguyenLieus nl ON nl.MaNguyenLieu = lt.MaNguyenLieu
+
+drop view View_LuuTru
+SELECT * FROM View_LuuTru
+
+INSERT INTO NhapKhos (MaNhanVien, MaNguyenLieu, NgayNhap, SoLuong, TongTien, SoNgayHetHan)
+VALUES
+(1, 1, GETDATE(), 10, 10 * 220000, 60), -- Thịt Bò
+(2, 2, GETDATE(), 5, 5 * 35000, 7),     -- Rau Xà Lách
+(3, 3, GETDATE(), 3, 3 * 45000, 10),    -- Ớt Chuông
+(1, 4, GETDATE(), 20, 20 * 15000, 30),  -- Tỏi Băm
+(2, 5, GETDATE(), 8, 8 * 150000, 90);
+
+INSERT INTO [dbo].[XuatKhos] 
+    ([MaNhanVien], [MaNguyenLieu], [SoLuong], [NgayXuat], [NguyenNhanXuatKho], [MaLuuTru])
+VALUES
+    (1, 2, 5, '2025-04-19 08:00:00', N'Xuất kho để phục vụ sản xuất', 1),
+    (2, 1, 2, '2025-04-19 09:30:00', N'Xuất kho cho đơn hàng', 2),
+    (3, 3, 3, '2025-04-20 10:15:00', N'Xuất kho theo yêu cầu của quản lý', 3);
 
 
 
+INSERT INTO [dbo].[LuuTrus] 
+    ([MaNhanVien], [MaNguyenLieu], [SoLuong], [NgayHetHan])
+VALUES
+	(3, 4, 50, '2026-01-25 23:59:59'),
+	(2, 1, 200, '2026-02-15 23:59:59'),
+	(1, 2, 100, '2025-12-31 23:59:59'),
+    (2, 1, 150, '2025-11-30 23:59:59'),
+    (3, 3, 200, '2026-01-15 23:59:59');
 
-
-
-
+select * from LuuTrus
 
 -- TRIGGER
 
@@ -512,6 +686,20 @@ BEGIN
     INNER JOIN MonAns ma ON i.MaMonAn = ma.MaMonAn;
 END;
 
+CREATE TRIGGER trg_UpdateTongTien_NhapKho
+ON NhapKhos
+AFTER INSERT, UPDATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    UPDATE nk
+    SET nk.TongTien = nk.SoLuong * nl.Gia
+    FROM NhapKhos nk
+    INNER JOIN inserted i ON nk.MaNhapKho = i.MaNhapKho
+    INNER JOIN NguyenLieus nl ON i.MaNguyenLieu = nl.MaNguyenLieu;
+END;
+
 DBCC CHECKIDENT ('ChiTietHoaDons', RESEED, 0)
 
 INSERT INTO ChiTietHoaDons (MaHoaDon, MaMonAn, SoLuong, ThanhTien)
@@ -520,3 +708,84 @@ INSERT INTO ChiTietHoaDons (MaHoaDon, MaMonAn, SoLuong, ThanhTien)
 VALUES (2, 1, 4, 0); 
 INSERT INTO ChiTietHoaDons (MaHoaDon, MaMonAn, SoLuong, ThanhTien)
 VALUES (1, 3, 10, 0); 
+
+--Trigger Tăng số lượng món ăn nếu đã có trong hóa đơn đó
+CREATE TRIGGER trg_MergeChiTietHoaDonIfExist
+ON ChiTietHoaDons
+INSTEAD OF INSERT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @MaHoaDon INT,
+            @MaMonAn INT,
+            @SoLuong INT,
+            @Gia FLOAT,
+            @ThanhTien FLOAT;
+
+    SELECT 
+        @MaHoaDon = MaHoaDon,
+        @MaMonAn = MaMonAn,
+        @SoLuong = SoLuong
+    FROM inserted;
+
+    SELECT @Gia = Gia FROM MonAns WHERE MaMonAn = @MaMonAn;
+    SET @ThanhTien = @SoLuong * @Gia;
+
+    IF EXISTS (
+        SELECT 1 FROM ChiTietHoaDons 
+        WHERE MaHoaDon = @MaHoaDon AND MaMonAn = @MaMonAn
+    )
+    BEGIN
+        UPDATE ChiTietHoaDons
+        SET SoLuong = SoLuong + @SoLuong,
+            ThanhTien = (SoLuong + @SoLuong) * @Gia
+        WHERE MaHoaDon = @MaHoaDon AND MaMonAn = @MaMonAn;
+    END
+    ELSE
+    BEGIN
+        INSERT INTO ChiTietHoaDons (MaHoaDon, MaMonAn, SoLuong, ThanhTien)
+        VALUES (@MaHoaDon, @MaMonAn, @SoLuong, @ThanhTien);
+    END
+END;
+
+-- trigger cập nhật tổng tiền của hóa đơn dựa trên cthd
+CREATE TRIGGER trg_UpdateTongTien
+ON ChiTietHoaDons
+AFTER INSERT, UPDATE, DELETE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @MaHoaDonTable TABLE (MaHoaDon INT);
+
+    -- Trường hợp INSERT và UPDATE
+    INSERT INTO @MaHoaDonTable(MaHoaDon)
+    SELECT DISTINCT MaHoaDon FROM inserted;
+
+    -- Trường hợp DELETE
+    INSERT INTO @MaHoaDonTable(MaHoaDon)
+    SELECT DISTINCT MaHoaDon FROM deleted;
+
+    -- Cập nhật lại tổng tiền trong bảng HoaDons
+    UPDATE hd
+    SET TongTien = ISNULL((
+        SELECT SUM(ThanhTien)
+        FROM ChiTietHoaDons cthd
+        WHERE cthd.MaHoaDon = hd.MaHoaDon
+    ), 0)
+    FROM HoaDons hd
+    WHERE hd.MaHoaDon IN (SELECT MaHoaDon FROM @MaHoaDonTable);
+END;
+
+DROP TRIGGER trg_UpdateTongTien_HoaDon
+
+UPDATE HoaDons
+SET TongTien = (
+    SELECT ISNULL(SUM(ThanhTien), 0)
+    FROM ChiTietHoaDons
+    WHERE ChiTietHoaDons.MaHoaDon = HoaDons.MaHoaDon
+);
+
+ALTER TABLE NhapKhos
+DROP COLUMN GiaTien;

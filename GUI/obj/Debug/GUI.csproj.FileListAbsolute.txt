@@ -30,3 +30,5 @@ D:\Hung_WinForm\GUI\obj\Debug\GUI.UC_DSKhuyenMai.resources
 D:\Hung_WinForm\GUI\obj\Debug\GUI.UC_DSHoaDon.resources
 D:\Hung_WinForm\GUI\obj\Debug\GUI.UC_DSNhanVien.resources
 D:\Hung_WinForm\GUI\obj\Debug\GUI.UC_DSChiTietHoaDon.resources
+D:\Hung_WinForm\GUI\obj\Debug\GUI.UC_DSNhapKho.resources
+D:\Hung_WinForm\GUI\obj\Debug\GUI.UC_DSXuatKho.resources

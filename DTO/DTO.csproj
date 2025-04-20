@@ -46,12 +46,15 @@
     <Compile Include="HoaDon.cs" />
     <Compile Include="KhachHang.cs" />
     <Compile Include="KhuyenMai.cs" />
+    <Compile Include="LuuTru.cs" />
     <Compile Include="MonAn.cs" />
     <Compile Include="NguyenLieu.cs" />
     <Compile Include="NhaCungCap.cs" />
     <Compile Include="NhanVien.cs" />
+    <Compile Include="NhapKho.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TaiKhoanNhanVien.cs" />
+    <Compile Include="XuatKho.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

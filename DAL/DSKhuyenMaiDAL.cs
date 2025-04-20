@@ -30,7 +30,7 @@ namespace DAL
             SqlCommand cmd = new SqlCommand("proc_CapNhatThongTinKhuyenMai", conn);
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("@MaKhuyenMai", khuyenMai);
+            cmd.Parameters.AddWithValue("@MaKhuyenMai", khuyenMai.MaKhuyenMai);
             cmd.Parameters.AddWithValue("@TenKhuyenMai", khuyenMai.TenKhuyenMai);
             cmd.Parameters.AddWithValue("@DaDung", khuyenMai.DaDung);
             cmd.Parameters.AddWithValue("@NgayHetHan", khuyenMai.NgayHetHan);

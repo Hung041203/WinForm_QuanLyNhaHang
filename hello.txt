@@ -1,6 +1,0 @@
-git add .
-
-git commit -m"..." (tên chức năng)
-
-git push origin main/master
-

@@ -34,7 +34,6 @@ namespace DAL
             cmd.Parameters.AddWithValue("@MaNhanVien", hoaDon.MaNhanVien);
             cmd.Parameters.AddWithValue("@MaKhachHang", hoaDon.MaKhachHang);
             cmd.Parameters.AddWithValue("@NgayLap", hoaDon.NgayLap);
-            cmd.Parameters.AddWithValue("@TongTien", hoaDon.TongTien);
 
             cmd.ExecuteNonQuery();
             conn.Close();
@@ -51,7 +50,6 @@ namespace DAL
             cmd.Parameters.AddWithValue("@MaNhanVien", hoaDon.MaNhanVien);
             cmd.Parameters.AddWithValue("@MaKhachHang", hoaDon.MaKhachHang);
             cmd.Parameters.AddWithValue("@NgayLap", hoaDon.NgayLap);
-            cmd.Parameters.AddWithValue("@TongTien", hoaDon.TongTien);
 
             cmd.ExecuteNonQuery();
             conn.Close();

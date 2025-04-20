@@ -27,9 +27,12 @@ namespace GUI
 
         private void LoadDataGridView()
         {
-            int maHD = Convert.ToInt32(comboBox_MaHoaDon.SelectedValue);
-            DataTable dt = dSChiTietHoaDon.Get_ListChiTietHoaDon(maHD);
-            dGV_DSChiTietHoaDon.DataSource = dt;
+            if (comboBox_MaHoaDon.SelectedValue != null && comboBox_MaHoaDon.SelectedValue is int)
+            {
+                int maHD = (int)comboBox_MaHoaDon.SelectedValue;
+                DataTable dt = dSChiTietHoaDon.Get_ListChiTietHoaDon(maHD);
+                dGV_DSChiTietHoaDon.DataSource = dt;
+            }
         }
 
         private void LoadComboBox_MaHoaDon()

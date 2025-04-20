@@ -25,7 +25,7 @@ namespace GUI
             LoadComboBox_TenNhanVien();
             LoadComboBox_TenKhachHang();
         }
-        private void LoadDataGridView()
+        public void LoadDataGridView()
         {
             DataTable dt = dSHoaDon.Get_ListHoaDon();
             dGV_DSHoaDon.DataSource = dt;
@@ -63,7 +63,6 @@ namespace GUI
             comboBox_TenNhanVien.Enabled = true;
             comboBox_TenKhachHang.Enabled = true;
             dTP_NgayLap.Enabled = true;
-            textBox_TongTien.Enabled = true;
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
@@ -71,7 +70,6 @@ namespace GUI
             hoaDon.MaNhanVien = Convert.ToInt32(comboBox_TenNhanVien.SelectedValue);
             hoaDon.MaKhachHang = Convert.ToInt32(comboBox_TenKhachHang.SelectedValue);
             hoaDon.NgayLap = Convert.ToDateTime(dTP_NgayLap.Value);
-            hoaDon.TongTien = Convert.ToSingle(textBox_TongTien.Text);
 
             dSHoaDon.Add_HoaDon(hoaDon);
             MessageBox.Show("Bạn đã thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -83,13 +81,11 @@ namespace GUI
             comboBox_TenNhanVien.Enabled = true;
             comboBox_TenKhachHang.Enabled = true;
             dTP_NgayLap.Enabled = true;
-            textBox_TongTien.Enabled = true;
 
             hoaDon.MaHoaDon = Convert.ToInt32(textBox_MaHoaDon.Text);
             hoaDon.MaNhanVien = Convert.ToInt32(comboBox_TenNhanVien.SelectedValue);
             hoaDon.MaKhachHang = Convert.ToInt32(comboBox_TenKhachHang.SelectedValue);
             hoaDon.NgayLap = Convert.ToDateTime (dTP_NgayLap.Value);
-            hoaDon.TongTien = Convert.ToSingle(textBox_TongTien.Text);
 
             dSHoaDon.Update_InfoHoaDon(hoaDon);
             MessageBox.Show("Bạn đã cập nhật thông tin thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

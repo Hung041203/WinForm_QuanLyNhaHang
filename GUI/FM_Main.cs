@@ -15,15 +15,6 @@ namespace GUI
         UC_TrangChu uC_TrangChu = new UC_TrangChu();
         UC_ThongTinTaiKhoan uC_ThongTinTaiKhoan = new UC_ThongTinTaiKhoan();
         UC_DoiMatKhau uC_DoiMatKhau = new UC_DoiMatKhau();
-        UC_DSNhanVien uC_DSNhanVien = new UC_DSNhanVien();
-        UC_DSNhaCungCap uC_DSNhaCungCap = new UC_DSNhaCungCap();
-        UC_DSMonAn uC_DSMonAn = new UC_DSMonAn();
-        UC_DSChucVu uC_DSChucVu = new UC_DSChucVu();
-        UC_DSKhachHang uC_DSKhachHang = new UC_DSKhachHang();
-        UC_DSNguyenLieu uC_DSNguyenLieu = new UC_DSNguyenLieu();
-        UC_DSKhuyenMai uC_DSKhuyenMai = new UC_DSKhuyenMai();
-        UC_DSHoaDon uC_DSHoaDon = new UC_DSHoaDon();
-        UC_DSChiTietHoaDon uC_DSChiTietHoaDon = new UC_DSChiTietHoaDon();
 
         public FM_Main()
         {
@@ -54,7 +45,6 @@ namespace GUI
                 fm_TaiKhoan.ShowDialog();
                 this.Close();
             }
-            
         }
         private void button_TrangChu_Click(object sender, EventArgs e)
         {
@@ -64,56 +54,79 @@ namespace GUI
 
         private void button_DSNhanVien_Click(object sender, EventArgs e)
         {
+            UC_DSNhanVien uC_DSNhanVien = new UC_DSNhanVien();
             panel_Container.Controls.Clear();
             panel_Container.Controls.Add(uC_DSNhanVien);
         }
 
         private void button_NhaCungCap_Click(object sender, EventArgs e)
         {
+            UC_DSNhaCungCap uC_DSNhaCungCap = new UC_DSNhaCungCap();
             panel_Container.Controls.Clear();
             panel_Container.Controls.Add(uC_DSNhaCungCap);
         }
 
         private void button_DSMonAn_Click(object sender, EventArgs e)
         {
+            UC_DSMonAn uC_DSMonAn = new UC_DSMonAn();
             panel_Container.Controls.Clear();
             panel_Container.Controls.Add(uC_DSMonAn);
         }
 
         private void button_DSChucVu_Click(object sender, EventArgs e)
         {
+            UC_DSChucVu uC_DSChucVu = new UC_DSChucVu();
             panel_Container.Controls.Clear();
             panel_Container.Controls.Add(uC_DSChucVu);
         }
 
         private void button_DSKhachHang_Click(object sender, EventArgs e)
         {
+            UC_DSKhachHang uC_DSKhachHang = new UC_DSKhachHang();
             panel_Container.Controls.Clear();
             panel_Container.Controls.Add(uC_DSKhachHang);
         }
 
         private void button_DSNguyenLieu_Click(object sender, EventArgs e)
         {
+            UC_DSNguyenLieu uC_DSNguyenLieu = new UC_DSNguyenLieu();
             panel_Container.Controls.Clear();
             panel_Container.Controls.Add(uC_DSNguyenLieu);
         }
 
         private void button_DSKhuyenMai_Click(object sender, EventArgs e)
         {
+            UC_DSKhuyenMai uC_DSKhuyenMai = new UC_DSKhuyenMai();
             panel_Container.Controls.Clear();
             panel_Container.Controls.Add(uC_DSKhuyenMai);
         }
 
         private void button_DSHoaDon_Click(object sender, EventArgs e)
         {
+            UC_DSHoaDon uC_DSHoaDon = new UC_DSHoaDon();
             panel_Container.Controls.Clear();
             panel_Container.Controls.Add(uC_DSHoaDon);
         }
 
         private void button_ChiTietHoaDon_Click(object sender, EventArgs e)
         {
+            UC_DSChiTietHoaDon uC_DSChiTietHoaDon = new UC_DSChiTietHoaDon();
             panel_Container.Controls.Clear();
             panel_Container.Controls.Add(uC_DSChiTietHoaDon);
+        }
+
+        private void button_NhapKho_Click(object sender, EventArgs e)
+        {
+            UC_DSNhapKho uC_DSNhapKho = new UC_DSNhapKho();
+            panel_Container.Controls.Clear();
+            panel_Container.Controls.Add(uC_DSNhapKho);
+        }
+
+        private void button_XuatKho_Click(object sender, EventArgs e)
+        {
+            UC_DSXuatKho uC_DSXuatKho = new UC_DSXuatKho();
+            panel_Container.Controls.Clear();
+            panel_Container.Controls.Add(uC_DSXuatKho);
         }
     }
 }

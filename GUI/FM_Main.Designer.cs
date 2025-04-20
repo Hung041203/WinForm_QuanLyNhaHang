@@ -32,6 +32,8 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.button_ChiTietHoaDon = new System.Windows.Forms.Button();
+            this.panel17 = new System.Windows.Forms.Panel();
             this.button_DSKhuyenMai = new System.Windows.Forms.Button();
             this.panel16 = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
@@ -65,8 +67,6 @@
             this.button_ThongTinTaiKhoan = new System.Windows.Forms.Button();
             this.button_DoiMatKhau = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.panel17 = new System.Windows.Forms.Panel();
-            this.button_ChiTietHoaDon = new System.Windows.Forms.Button();
             this.tabPage5.SuspendLayout();
             this.panel10.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -126,7 +126,29 @@
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(1190, 190);
             this.panel10.TabIndex = 10;
-
+            // 
+            // button_ChiTietHoaDon
+            // 
+            this.button_ChiTietHoaDon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.button_ChiTietHoaDon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button_ChiTietHoaDon.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_ChiTietHoaDon.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button_ChiTietHoaDon.Location = new System.Drawing.Point(1020, 10);
+            this.button_ChiTietHoaDon.Name = "button_ChiTietHoaDon";
+            this.button_ChiTietHoaDon.Size = new System.Drawing.Size(170, 170);
+            this.button_ChiTietHoaDon.TabIndex = 12;
+            this.button_ChiTietHoaDon.Text = "Chi tiết hóa đơn";
+            this.button_ChiTietHoaDon.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button_ChiTietHoaDon.UseVisualStyleBackColor = false;
+            this.button_ChiTietHoaDon.Click += new System.EventHandler(this.button_ChiTietHoaDon_Click);
+            // 
+            // panel17
+            // 
+            this.panel17.BackColor = System.Drawing.Color.Gray;
+            this.panel17.Location = new System.Drawing.Point(1025, 0);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(160, 10);
+            this.panel17.TabIndex = 11;
             // 
             // button_DSKhuyenMai
             // 
@@ -353,6 +375,7 @@
             this.button_XuatKho.Text = "Xuất kho";
             this.button_XuatKho.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button_XuatKho.UseVisualStyleBackColor = false;
+            this.button_XuatKho.Click += new System.EventHandler(this.button_XuatKho_Click);
             // 
             // button_DSHoaDon
             // 
@@ -382,6 +405,7 @@
             this.button_NhapKho.Text = "Nhập kho";
             this.button_NhapKho.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button_NhapKho.UseVisualStyleBackColor = false;
+            this.button_NhapKho.Click += new System.EventHandler(this.button_NhapKho_Click);
             // 
             // tabPage1
             // 
@@ -521,29 +545,6 @@
             this.tabControl1.Size = new System.Drawing.Size(1478, 250);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 1;
-            // 
-            // panel17
-            // 
-            this.panel17.BackColor = System.Drawing.Color.Gray;
-            this.panel17.Location = new System.Drawing.Point(1025, 0);
-            this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(160, 10);
-            this.panel17.TabIndex = 11;
-            // 
-            // button_ChiTietHoaDon
-            // 
-            this.button_ChiTietHoaDon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.button_ChiTietHoaDon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button_ChiTietHoaDon.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_ChiTietHoaDon.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button_ChiTietHoaDon.Location = new System.Drawing.Point(1020, 10);
-            this.button_ChiTietHoaDon.Name = "button_ChiTietHoaDon";
-            this.button_ChiTietHoaDon.Size = new System.Drawing.Size(170, 170);
-            this.button_ChiTietHoaDon.TabIndex = 12;
-            this.button_ChiTietHoaDon.Text = "Chi tiết hóa đơn";
-            this.button_ChiTietHoaDon.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button_ChiTietHoaDon.UseVisualStyleBackColor = false;
-            this.button_ChiTietHoaDon.Click += new System.EventHandler(this.button_ChiTietHoaDon_Click);
             // 
             // FM_Main
             // 

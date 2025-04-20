@@ -46,10 +46,13 @@
     <Compile Include="DSHoaDonBLL.cs" />
     <Compile Include="DSKhachHangBLL.cs" />
     <Compile Include="DSKhuyenMaiBLL.cs" />
+    <Compile Include="DSLuuTruBLL.cs" />
     <Compile Include="DSMonAnBLL.cs" />
     <Compile Include="DSNguyenLieuBLL.cs" />
     <Compile Include="DSNhaCungCapBLL.cs" />
     <Compile Include="DSNhanVienBLL.cs" />
+    <Compile Include="DSNhapKhoBLL.cs" />
+    <Compile Include="DSXuatKhoBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TaiKhoanBLL.cs" />
   </ItemGroup>
