@@ -27,7 +27,7 @@ namespace DAL
             SqlConnection conn = Connect();
             conn.Open();
 
-            SqlCommand cmd = new SqlCommand("proc_CapNhatThongTinKhuyenMai", conn);
+            SqlCommand cmd = new SqlCommand("sp_SuaKhuyenMai", conn);
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@MaKhuyenMai", khuyenMai.MaKhuyenMai);
@@ -45,7 +45,7 @@ namespace DAL
             SqlConnection conn = Connect();
             conn.Open();
 
-            SqlCommand cmd = new SqlCommand("proc_ThemKhuyenMai", conn);
+            SqlCommand cmd = new SqlCommand("sp_ThemKhuyenMai", conn);
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@TenKhuyenMai", khuyenMai.TenKhuyenMai);

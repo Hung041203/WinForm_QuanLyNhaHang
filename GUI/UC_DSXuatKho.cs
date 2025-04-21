@@ -118,9 +118,6 @@ namespace GUI
             comboBox_MaLuuTru.SelectedItem = null;
             comboBox_MaLuuTru.Text = "";
 
-            /*comboBox_TenNguyenLieu.SelectedIndex = -1;
-            comboBox_TenNguyenLieu.SelectedItem = null;
-            comboBox_TenNguyenLieu.Text = "";*/
             textBox_TenNguyenLieu.Clear();
             textBox_SoLuong.Clear();
             textBox_NguyenNhanXuat.Clear();

@@ -128,5 +128,12 @@ namespace GUI
             panel_Container.Controls.Clear();
             panel_Container.Controls.Add(uC_DSXuatKho);
         }
+
+        private void button_LuuTru_Click(object sender, EventArgs e)
+        {
+            UC_DSLuuTru uC_DSLuuTru = new UC_DSLuuTru();
+            panel_Container.Controls.Clear();
+            panel_Container.Controls.Add(uC_DSLuuTru);
+        }
     }
 }

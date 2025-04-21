@@ -67,6 +67,8 @@
             this.button_ThongTinTaiKhoan = new System.Windows.Forms.Button();
             this.button_DoiMatKhau = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.button_LuuTru = new System.Windows.Forms.Button();
             this.tabPage5.SuspendLayout();
             this.panel10.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -302,6 +304,8 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.panel18);
+            this.panel2.Controls.Add(this.button_LuuTru);
             this.panel2.Controls.Add(this.button_DSNhanVien);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.panel4);
@@ -312,7 +316,7 @@
             this.panel2.Controls.Add(this.button_NhapKho);
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(680, 190);
+            this.panel2.Size = new System.Drawing.Size(850, 190);
             this.panel2.TabIndex = 9;
             // 
             // button_DSNhanVien
@@ -546,6 +550,29 @@
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 1;
             // 
+            // panel18
+            // 
+            this.panel18.BackColor = System.Drawing.Color.Gray;
+            this.panel18.Location = new System.Drawing.Point(686, 0);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(160, 10);
+            this.panel18.TabIndex = 10;
+            // 
+            // button_LuuTru
+            // 
+            this.button_LuuTru.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.button_LuuTru.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button_LuuTru.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_LuuTru.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button_LuuTru.Location = new System.Drawing.Point(680, 10);
+            this.button_LuuTru.Name = "button_LuuTru";
+            this.button_LuuTru.Size = new System.Drawing.Size(170, 170);
+            this.button_LuuTru.TabIndex = 9;
+            this.button_LuuTru.Text = "Lưu trữ";
+            this.button_LuuTru.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button_LuuTru.UseVisualStyleBackColor = false;
+            this.button_LuuTru.Click += new System.EventHandler(this.button_LuuTru_Click);
+            // 
             // FM_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -609,5 +636,7 @@
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.Button button_ChiTietHoaDon;
         private System.Windows.Forms.Panel panel17;
+        private System.Windows.Forms.Panel panel18;
+        private System.Windows.Forms.Button button_LuuTru;
     }
 }

@@ -3,22 +3,22 @@
   "WorkspaceRootPath": "D:\\Hung_WinForm\\QuanLyNhaHang\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9BB8A99E-B7B1-4A6F-9375-FC58805EF6C8}|..\\GUI\\GUI.csproj|d:\\hung_winform\\gui\\uc_dsxuatkho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9BB8A99E-B7B1-4A6F-9375-FC58805EF6C8}|..\\GUI\\GUI.csproj|d:\\hung_winform\\gui\\uc_dskhuyenmai2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9BB8A99E-B7B1-4A6F-9375-FC58805EF6C8}|..\\GUI\\GUI.csproj|d:\\hung_winform\\gui\\uc_dsnhapkho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Hung\\HQTCSDL\\QuanLyNhaHang\\QuanLyNhaHang\\FmKhuyenMai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{098EEED4-0FF6-4707-A15F-A7DA13F2B48A}|..\\BLL\\BLL.csproj|d:\\hung_winform\\bll\\dsxuatkhobll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9BB8A99E-B7B1-4A6F-9375-FC58805EF6C8}|..\\GUI\\GUI.csproj|d:\\hung_winform\\gui\\uc_dskhuyenmai2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5C52791E-28C8-45F5-8DB1-472017468257}|..\\DAL\\DAL.csproj|d:\\hung_winform\\dal\\dsxuatkhodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9BB8A99E-B7B1-4A6F-9375-FC58805EF6C8}|..\\GUI\\GUI.csproj|d:\\hung_winform\\gui\\uc_dskhuyenmai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9BB8A99E-B7B1-4A6F-9375-FC58805EF6C8}|..\\GUI\\GUI.csproj|d:\\hung_winform\\gui\\fm_main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9BB8A99E-B7B1-4A6F-9375-FC58805EF6C8}|..\\GUI\\GUI.csproj|d:\\hung_winform\\gui\\uc_dsnguyenlieu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9BB8A99E-B7B1-4A6F-9375-FC58805EF6C8}|..\\GUI\\GUI.csproj|d:\\hung_winform\\gui\\fm_main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -28,22 +28,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UC_DSXuatKho.cs",
-              "DocumentMoniker": "D:\\Hung_WinForm\\GUI\\UC_DSXuatKho.cs",
-              "RelativeDocumentMoniker": "..\\GUI\\UC_DSXuatKho.cs",
-              "ToolTip": "D:\\Hung_WinForm\\GUI\\UC_DSXuatKho.cs",
-              "RelativeToolTip": "..\\GUI\\UC_DSXuatKho.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAIwEEAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-20T15:54:16.2Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
@@ -54,42 +40,54 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "DSXuatKhoDAL.cs",
-              "DocumentMoniker": "D:\\Hung_WinForm\\DAL\\DSXuatKhoDAL.cs",
-              "RelativeDocumentMoniker": "..\\DAL\\DSXuatKhoDAL.cs",
-              "ToolTip": "D:\\Hung_WinForm\\DAL\\DSXuatKhoDAL.cs",
-              "RelativeToolTip": "..\\DAL\\DSXuatKhoDAL.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAYwDcAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "FmKhuyenMai.cs",
+              "DocumentMoniker": "D:\\Hung\\HQTCSDL\\QuanLyNhaHang\\QuanLyNhaHang\\FmKhuyenMai.cs",
+              "RelativeDocumentMoniker": "..\\..\\Hung\\HQTCSDL\\QuanLyNhaHang\\QuanLyNhaHang\\FmKhuyenMai.cs",
+              "ToolTip": "D:\\Hung\\HQTCSDL\\QuanLyNhaHang\\QuanLyNhaHang\\FmKhuyenMai.cs",
+              "RelativeToolTip": "..\\..\\Hung\\HQTCSDL\\QuanLyNhaHang\\QuanLyNhaHang\\FmKhuyenMai.cs",
+              "ViewState": "AgIAAGcAAAAAAAAAAADwv34AAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-20T15:55:56.915Z",
+              "WhenOpened": "2025-04-21T05:58:42.767Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UC_DSKhuyenMai2.cs",
+              "DocumentMoniker": "D:\\Hung_WinForm\\GUI\\UC_DSKhuyenMai2.cs",
+              "RelativeDocumentMoniker": "..\\GUI\\UC_DSKhuyenMai2.cs",
+              "ToolTip": "D:\\Hung_WinForm\\GUI\\UC_DSKhuyenMai2.cs",
+              "RelativeToolTip": "..\\GUI\\UC_DSKhuyenMai2.cs",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAuwGwAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-21T05:55:11.188Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UC_DSKhuyenMai.cs",
+              "DocumentMoniker": "D:\\Hung_WinForm\\GUI\\UC_DSKhuyenMai.cs",
+              "RelativeDocumentMoniker": "..\\GUI\\UC_DSKhuyenMai.cs",
+              "ToolTip": "D:\\Hung_WinForm\\GUI\\UC_DSKhuyenMai.cs",
+              "RelativeToolTip": "..\\GUI\\UC_DSKhuyenMai.cs",
+              "ViewState": "AgIAADUAAAAAAAAAAAAmwEcAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-21T05:55:41.534Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "DSXuatKhoBLL.cs",
-              "DocumentMoniker": "D:\\Hung_WinForm\\BLL\\DSXuatKhoBLL.cs",
-              "RelativeDocumentMoniker": "..\\BLL\\DSXuatKhoBLL.cs",
-              "ToolTip": "D:\\Hung_WinForm\\BLL\\DSXuatKhoBLL.cs",
-              "RelativeToolTip": "..\\BLL\\DSXuatKhoBLL.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAJAAAAAAAAAA==",
+              "Title": "UC_DSKhuyenMai2.cs [Design]",
+              "DocumentMoniker": "D:\\Hung_WinForm\\GUI\\UC_DSKhuyenMai2.cs",
+              "RelativeDocumentMoniker": "..\\GUI\\UC_DSKhuyenMai2.cs",
+              "ToolTip": "D:\\Hung_WinForm\\GUI\\UC_DSKhuyenMai2.cs [Design]",
+              "RelativeToolTip": "..\\GUI\\UC_DSKhuyenMai2.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-20T15:55:22.345Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UC_DSNhapKho.cs",
-              "DocumentMoniker": "D:\\Hung_WinForm\\GUI\\UC_DSNhapKho.cs",
-              "RelativeDocumentMoniker": "..\\GUI\\UC_DSNhapKho.cs",
-              "ToolTip": "D:\\Hung_WinForm\\GUI\\UC_DSNhapKho.cs",
-              "RelativeToolTip": "..\\GUI\\UC_DSNhapKho.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAUwD0AAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-20T12:52:48.876Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-21T05:52:21.019Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
@@ -99,7 +97,7 @@
               "RelativeDocumentMoniker": "..\\GUI\\FM_Main.cs",
               "ToolTip": "D:\\Hung_WinForm\\GUI\\FM_Main.cs",
               "RelativeToolTip": "..\\GUI\\FM_Main.cs",
-              "ViewState": "AgIAAGYAAAAAAAAAAAAowIAAAAA1AAAAAAAAAA==",
+              "ViewState": "AgIAAFIAAAAAAAAAAAA1wGQAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-20T16:17:28.075Z",
               "EditorCaption": ""
@@ -107,15 +105,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "UC_DSNguyenLieu.cs",
-              "DocumentMoniker": "D:\\Hung_WinForm\\GUI\\UC_DSNguyenLieu.cs",
-              "RelativeDocumentMoniker": "..\\GUI\\UC_DSNguyenLieu.cs",
-              "ToolTip": "D:\\Hung_WinForm\\GUI\\UC_DSNguyenLieu.cs",
-              "RelativeToolTip": "..\\GUI\\UC_DSNguyenLieu.cs",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAowGAAAAANAAAAAAAAAA==",
+              "Title": "FM_Main.cs [Design]",
+              "DocumentMoniker": "D:\\Hung_WinForm\\GUI\\FM_Main.cs",
+              "RelativeDocumentMoniker": "..\\GUI\\FM_Main.cs",
+              "ToolTip": "D:\\Hung_WinForm\\GUI\\FM_Main.cs [Design]",
+              "RelativeToolTip": "..\\GUI\\FM_Main.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-20T13:54:37.996Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-21T04:58:36.845Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

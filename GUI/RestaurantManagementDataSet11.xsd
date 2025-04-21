@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="RestaurantManagementDataSet11" targetNamespace="http://tempuri.org/RestaurantManagementDataSet11.xsd" xmlns:mstns="http://tempuri.org/RestaurantManagementDataSet11.xsd" xmlns="http://tempuri.org/RestaurantManagementDataSet11.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="RestaurantManagementConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="RestaurantManagementConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.GUI.Properties.Settings.GlobalReference.Default.RestaurantManagementConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="View_LuuTruTableAdapter" GeneratorDataComponentClassName="View_LuuTruTableAdapter" Name="View_LuuTru" UserDataComponentName="View_LuuTruTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="RestaurantManagementConnectionString (Settings)" DbObjectName="RestaurantManagement.dbo.View_LuuTru" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT MaLuuTru, TenNhanVien, TenNguyenLieu, NgayHetHan, SoLuong FROM dbo.View_LuuTru</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MaLuuTru" DataSetColumn="MaLuuTru" />
+              <Mapping SourceColumn="TenNhanVien" DataSetColumn="TenNhanVien" />
+              <Mapping SourceColumn="TenNguyenLieu" DataSetColumn="TenNguyenLieu" />
+              <Mapping SourceColumn="NgayHetHan" DataSetColumn="NgayHetHan" />
+              <Mapping SourceColumn="SoLuong" DataSetColumn="SoLuong" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="RestaurantManagementDataSet11" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="RestaurantManagementDataSet11" msprop:Generator_DataSetName="RestaurantManagementDataSet11">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="View_LuuTru" msprop:Generator_RowEvHandlerName="View_LuuTruRowChangeEventHandler" msprop:Generator_RowDeletedName="View_LuuTruRowDeleted" msprop:Generator_RowDeletingName="View_LuuTruRowDeleting" msprop:Generator_RowEvArgName="View_LuuTruRowChangeEvent" msprop:Generator_TablePropName="View_LuuTru" msprop:Generator_RowChangedName="View_LuuTruRowChanged" msprop:Generator_RowChangingName="View_LuuTruRowChanging" msprop:Generator_TableClassName="View_LuuTruDataTable" msprop:Generator_RowClassName="View_LuuTruRow" msprop:Generator_TableVarName="tableView_LuuTru" msprop:Generator_UserTableName="View_LuuTru">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MaLuuTru" msprop:Generator_ColumnPropNameInRow="MaLuuTru" msprop:Generator_ColumnPropNameInTable="MaLuuTruColumn" msprop:Generator_ColumnVarNameInTable="columnMaLuuTru" msprop:Generator_UserColumnName="MaLuuTru" type="xs:int" />
+              <xs:element name="TenNhanVien" msprop:Generator_ColumnPropNameInRow="TenNhanVien" msprop:Generator_ColumnPropNameInTable="TenNhanVienColumn" msprop:Generator_ColumnVarNameInTable="columnTenNhanVien" msprop:Generator_UserColumnName="TenNhanVien">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TenNguyenLieu" msprop:Generator_ColumnPropNameInRow="TenNguyenLieu" msprop:Generator_ColumnPropNameInTable="TenNguyenLieuColumn" msprop:Generator_ColumnVarNameInTable="columnTenNguyenLieu" msprop:Generator_UserColumnName="TenNguyenLieu">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NgayHetHan" msprop:Generator_ColumnPropNameInRow="NgayHetHan" msprop:Generator_ColumnPropNameInTable="NgayHetHanColumn" msprop:Generator_ColumnVarNameInTable="columnNgayHetHan" msprop:Generator_UserColumnName="NgayHetHan" type="xs:dateTime" />
+              <xs:element name="SoLuong" msprop:Generator_ColumnPropNameInRow="SoLuong" msprop:Generator_ColumnPropNameInTable="SoLuongColumn" msprop:Generator_ColumnVarNameInTable="columnSoLuong" msprop:Generator_UserColumnName="SoLuong" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:View_LuuTru" />
+      <xs:field xpath="mstns:MaLuuTru" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

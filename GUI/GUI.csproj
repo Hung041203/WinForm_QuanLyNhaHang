@@ -80,6 +80,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RestaurantManagementDataSet10.xsd</DependentUpon>
     </Compile>
+    <Compile Include="RestaurantManagementDataSet11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RestaurantManagementDataSet11.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RestaurantManagementDataSet12.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RestaurantManagementDataSet12.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RestaurantManagementDataSet13.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RestaurantManagementDataSet13.xsd</DependentUpon>
+    </Compile>
     <Compile Include="RestaurantManagementDataSet2.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -155,6 +170,12 @@
     </Compile>
     <Compile Include="UC_DSKhuyenMai.Designer.cs">
       <DependentUpon>UC_DSKhuyenMai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_DSLuuTru.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_DSLuuTru.Designer.cs">
+      <DependentUpon>UC_DSLuuTru.cs</DependentUpon>
     </Compile>
     <Compile Include="UC_DSNguyenLieu.cs">
       <SubType>UserControl</SubType>
@@ -245,6 +266,9 @@
     <EmbeddedResource Include="UC_DSKhuyenMai.resx">
       <DependentUpon>UC_DSKhuyenMai.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UC_DSLuuTru.resx">
+      <DependentUpon>UC_DSLuuTru.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UC_DSNguyenLieu.resx">
       <DependentUpon>UC_DSNguyenLieu.cs</DependentUpon>
     </EmbeddedResource>
@@ -316,6 +340,39 @@
     </None>
     <None Include="RestaurantManagementDataSet10.xss">
       <DependentUpon>RestaurantManagementDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="RestaurantManagementDataSet11.xsc">
+      <DependentUpon>RestaurantManagementDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="RestaurantManagementDataSet11.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RestaurantManagementDataSet11.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RestaurantManagementDataSet11.xss">
+      <DependentUpon>RestaurantManagementDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="RestaurantManagementDataSet12.xsc">
+      <DependentUpon>RestaurantManagementDataSet12.xsd</DependentUpon>
+    </None>
+    <None Include="RestaurantManagementDataSet12.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RestaurantManagementDataSet12.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RestaurantManagementDataSet12.xss">
+      <DependentUpon>RestaurantManagementDataSet12.xsd</DependentUpon>
+    </None>
+    <None Include="RestaurantManagementDataSet13.xsc">
+      <DependentUpon>RestaurantManagementDataSet13.xsd</DependentUpon>
+    </None>
+    <None Include="RestaurantManagementDataSet13.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RestaurantManagementDataSet13.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RestaurantManagementDataSet13.xss">
+      <DependentUpon>RestaurantManagementDataSet13.xsd</DependentUpon>
     </None>
     <None Include="RestaurantManagementDataSet2.xsc">
       <DependentUpon>RestaurantManagementDataSet2.xsd</DependentUpon>

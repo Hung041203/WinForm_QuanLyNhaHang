@@ -787,5 +787,62 @@ SET TongTien = (
     WHERE ChiTietHoaDons.MaHoaDon = HoaDons.MaHoaDon
 );
 
-ALTER TABLE NhapKhos
-DROP COLUMN GiaTien;
+
+CREATE TRIGGER trg_XuatKho_Update
+ON XuatKhos
+AFTER UPDATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Trừ số lượng cũ
+    UPDATE lt
+    SET lt.SoLuong = lt.SoLuong + d.SoLuongXuat
+    FROM LuuTrus lt
+    INNER JOIN deleted d ON lt.MaLuuTru = d.MaLuuTru;
+
+    -- Trừ số lượng mới
+    UPDATE lt
+    SET lt.SoLuong = lt.SoLuong - i.SoLuongXuat
+    FROM LuuTrus lt
+    INNER JOIN inserted i ON lt.MaLuuTru = i.MaLuuTru;
+
+    -- Kiểm tra không âm
+    IF EXISTS (SELECT 1 FROM LuuTrus WHERE SoLuong < 0)
+    BEGIN
+        RAISERROR(N'Cập nhật không hợp lệ: Số lượng trong kho âm!', 16, 1);
+        ROLLBACK TRANSACTION;
+    END
+END;
+
+CREATE TRIGGER trg_XuatKho_Delete
+ON XuatKhos
+AFTER DELETE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    UPDATE lt
+    SET lt.SoLuong = lt.SoLuong + d.SoLuongXuat
+    FROM LuuTrus lt
+    INNER JOIN deleted d ON lt.MaLuuTru = d.MaLuuTru;
+END;
+
+CREATE TRIGGER trg_XuatKho_Insert
+ON XuatKhos
+AFTER INSERT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    UPDATE lt
+    SET lt.SoLuong = lt.SoLuong - i.SoLuong
+    FROM LuuTrus lt
+    INNER JOIN inserted i ON lt.MaLuuTru = i.MaLuuTru;
+
+    IF EXISTS (SELECT 1 FROM LuuTrus WHERE SoLuong < 0)
+    BEGIN
+        RAISERROR(N'Số lượng trong kho không đủ để xuất!', 16, 1);
+        ROLLBACK TRANSACTION;
+    END
+END;

@@ -12,7 +12,7 @@ using BLL;
 
 namespace GUI
 {
-    public partial class UC_DSKhuyenMai: UserControl
+    public partial class UC_DSKhuyenMai : UserControl
     {
         KhuyenMai khuyenMai = new KhuyenMai();
         DSKhuyenMaiBLL dSKhuyenMai = new DSKhuyenMaiBLL();
@@ -45,6 +45,7 @@ namespace GUI
             comboBox_TenKhachHang.SelectedIndex = -1;
             comboBox_TenKhachHang.SelectedItem = null;
             comboBox_TenKhachHang.Text = "";
+            checkBox_DaDung.Checked = false;
 
             textBox_TenKhuyenMai.Enabled = true;
             textBox_TinhTrang.Enabled = true;
@@ -56,7 +57,7 @@ namespace GUI
         {
             khuyenMai.TenKhuyenMai = textBox_TenKhuyenMai.Text;
             khuyenMai.MaKhachHang = Convert.ToInt32(comboBox_TenKhachHang.SelectedValue);
-            khuyenMai.DaDung = textBox_TinhTrang.Text == "Đã dùng" ? true : false;
+            khuyenMai.DaDung = checkBox_DaDung.Checked;
             khuyenMai.NgayHetHan = Convert.ToDateTime(dTP_NgayHetHan.Value);
 
             dSKhuyenMai.Add_KhuyenMai(khuyenMai);
@@ -74,7 +75,7 @@ namespace GUI
             khuyenMai.MaKhuyenMai = Convert.ToInt32(textBox_MaKhuyenMai.Text);
             khuyenMai.TenKhuyenMai = textBox_TenKhuyenMai.Text;
             khuyenMai.MaKhachHang = Convert.ToInt32(comboBox_TenKhachHang.SelectedValue);
-            khuyenMai.DaDung = textBox_TinhTrang.Text == "Đã dùng" ? true : false;
+            khuyenMai.DaDung = checkBox_DaDung.Checked;
             khuyenMai.NgayHetHan = Convert.ToDateTime(dTP_NgayHetHan.Value);
 
             dSKhuyenMai.Update_InfoKhuyenMai(khuyenMai);
@@ -104,7 +105,8 @@ namespace GUI
                 textBox_MaKhuyenMai.Text = row.Cells["maKhuyenMaiDataGridViewTextBoxColumn"].Value.ToString();
                 textBox_TenKhuyenMai.Text = row.Cells["tenKhuyenMaiDataGridViewTextBoxColumn"].Value.ToString();
                 comboBox_TenKhachHang.Text = row.Cells["tenKhachHangDataGridViewTextBoxColumn"].Value.ToString();
-                textBox_TinhTrang.Text = row.Cells["tinhTrangDataGridViewTextBoxColumn"].Value.ToString();
+                checkBox_DaDung.Checked = Convert.ToBoolean(row.Cells["daDungDataGridViewCheckBoxColumn"].Value ?? false);
+                textBox_TinhTrang.Text = row.Cells["trangThaiDataGridViewTextBoxColumn"].Value.ToString();
                 dTP_NgayHetHan.Value = Convert.ToDateTime(row.Cells["ngayHetHanDataGridViewTextBoxColumn"].Value);
 
                 textBox_TenKhuyenMai.Enabled = true;
