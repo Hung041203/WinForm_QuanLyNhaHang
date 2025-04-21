@@ -1,7 +1,23 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\Hung_WinForm\\QuanLyNhaHang\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9BB8A99E-B7B1-4A6F-9375-FC58805EF6C8}|..\\GUI\\GUI.csproj|d:\\hung_winform\\gui\\fm_main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BB8A99E-B7B1-4A6F-9375-FC58805EF6C8}|..\\GUI\\GUI.csproj|d:\\hung_winform\\gui\\uc_dangnhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C52791E-28C8-45F5-8DB1-472017468257}|..\\DAL\\DAL.csproj|d:\\hung_winform\\dal\\dsxuatkhodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C52791E-28C8-45F5-8DB1-472017468257}|..\\DAL\\DAL.csproj|d:\\hung_winform\\dal\\dskhuyenmaidal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BB8A99E-B7B1-4A6F-9375-FC58805EF6C8}|..\\GUI\\GUI.csproj|d:\\hung_winform\\gui\\fm_main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +25,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -18,6 +34,70 @@
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UC_DangNhap.cs",
+              "DocumentMoniker": "D:\\Hung_WinForm\\GUI\\UC_DangNhap.cs",
+              "RelativeDocumentMoniker": "..\\GUI\\UC_DangNhap.cs",
+              "ToolTip": "D:\\Hung_WinForm\\GUI\\UC_DangNhap.cs",
+              "RelativeToolTip": "..\\GUI\\UC_DangNhap.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAkwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-21T15:46:26.656Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FM_Main.cs",
+              "DocumentMoniker": "D:\\Hung_WinForm\\GUI\\FM_Main.cs",
+              "RelativeDocumentMoniker": "..\\GUI\\FM_Main.cs",
+              "ToolTip": "D:\\Hung_WinForm\\GUI\\FM_Main.cs",
+              "RelativeToolTip": "..\\GUI\\FM_Main.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABYAAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-21T15:30:30.791Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DSXuatKhoDAL.cs",
+              "DocumentMoniker": "D:\\Hung_WinForm\\DAL\\DSXuatKhoDAL.cs",
+              "RelativeDocumentMoniker": "..\\DAL\\DSXuatKhoDAL.cs",
+              "ToolTip": "D:\\Hung_WinForm\\DAL\\DSXuatKhoDAL.cs",
+              "RelativeToolTip": "..\\DAL\\DSXuatKhoDAL.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAqwCAAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-21T15:20:45.597Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DSKhuyenMaiDAL.cs",
+              "DocumentMoniker": "D:\\Hung_WinForm\\DAL\\DSKhuyenMaiDAL.cs",
+              "RelativeDocumentMoniker": "..\\DAL\\DSKhuyenMaiDAL.cs",
+              "ToolTip": "D:\\Hung_WinForm\\DAL\\DSKhuyenMaiDAL.cs",
+              "RelativeToolTip": "..\\DAL\\DSKhuyenMaiDAL.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAqwCwAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-21T14:43:00.713Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FM_Main.cs [Design]",
+              "DocumentMoniker": "D:\\Hung_WinForm\\GUI\\FM_Main.cs",
+              "RelativeDocumentMoniker": "..\\GUI\\FM_Main.cs",
+              "ToolTip": "D:\\Hung_WinForm\\GUI\\FM_Main.cs [Design]",
+              "RelativeToolTip": "..\\GUI\\FM_Main.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-21T15:30:21.297Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

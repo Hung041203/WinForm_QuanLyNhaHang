@@ -240,10 +240,10 @@ END
 
 -- Nguyen Lieu
 INSERT INTO NguyenLieus (TenNguyenLieu, DonViTinh, Gia, MaNhaCungCap) VALUES
-(N'Thịt Bò', N'kg', 220000, 1),        -- Công Ty A
-(N'Rau Xà Lách', N'kg', 35000, 2),     -- Công Ty B
-(N'Ớt Chuông', N'kg', 45000, 3),       -- Công Ty C
-(N'Tỏi Băm', N'gói', 15000, 1),        -- Công Ty A
+(N'Thịt Bò', N'kg', 220000, 1),        
+(N'Rau Xà Lách', N'kg', 35000, 2),     
+(N'Ớt Chuông', N'kg', 45000, 3),       
+(N'Tỏi Băm', N'gói', 15000, 1),        
 (N'Thịt Gà', N'kg', 150000, 2); 
 
 CREATE VIEW View_NguyenLieu AS
@@ -359,6 +359,46 @@ CREATE PROCEDURE proc_XoaKhuyenMai
 AS
 BEGIN
     DELETE FROM KhuyenMais WHERE MaKhuyenMai = @MaKhuyenMai;
+END
+
+-- Khuyen Mai 2
+-- Thêm Khuyến Mãi
+CREATE PROCEDURE sp_ThemKhuyenMai
+    @TenKhuyenMai NVARCHAR(100),
+    @MaKhachHang INT,
+    @DaDung BIT,
+    @NgayHetHan DATE
+AS
+BEGIN
+    INSERT INTO KhuyenMais (TenKhuyenMai, MaKhachHang, DaDung, NgayHetHan)
+    VALUES (@TenKhuyenMai, @MaKhachHang, @DaDung, @NgayHetHan)
+END
+
+-- Xóa Khuyến Mãi
+CREATE PROCEDURE sp_XoaKhuyenMai
+    @MaKhuyenMai INT
+AS
+BEGIN
+    DELETE FROM KhuyenMais
+    WHERE MaKhuyenMai = @MaKhuyenMai
+END
+
+-- Sửa Khuyến Mãi
+CREATE PROCEDURE sp_SuaKhuyenMai
+    @MaKhuyenMai INT,
+    @TenKhuyenMai NVARCHAR(100),
+    @MaKhachHang INT,
+    @DaDung BIT,
+    @NgayHetHan DATE
+AS
+BEGIN
+    UPDATE KhuyenMais
+    SET 
+        TenKhuyenMai = @TenKhuyenMai,
+        MaKhachHang = @MaKhachHang,
+        DaDung = @DaDung,
+        NgayHetHan = @NgayHetHan
+    WHERE MaKhuyenMai = @MaKhuyenMai
 END
 
 -- Hoa Don
@@ -597,6 +637,26 @@ END
 
 
 ---------------------------- VIEW
+--view khuyen mai
+CREATE VIEW View_KhuyenMai AS
+SELECT 
+    km.MaKhuyenMai,
+    km.TenKhuyenMai,
+    kh.MaKhachHang,
+    kh.TenKhachHang,
+    km.DaDung,
+    km.NgayHetHan,
+    -- Trạng thái khuyến mãi hiển thị dễ hiểu
+    CASE 
+        WHEN km.DaDung = 1 THEN N'Đã dùng'
+        WHEN km.NgayHetHan < GETDATE() THEN N'Hết hạn'
+        ELSE N'Còn hạn'
+    END AS TrangThai
+FROM KhuyenMais km
+JOIN KhachHangs kh ON km.MaKhachHang = kh.MaKhachHang;
+
+DROP VIEW View_KhuyenMai
+
 --view nhap kho
 CREATE VIEW View_NhapKho AS
 SELECT 
@@ -780,14 +840,7 @@ END;
 
 DROP TRIGGER trg_UpdateTongTien_HoaDon
 
-UPDATE HoaDons
-SET TongTien = (
-    SELECT ISNULL(SUM(ThanhTien), 0)
-    FROM ChiTietHoaDons
-    WHERE ChiTietHoaDons.MaHoaDon = HoaDons.MaHoaDon
-);
-
-
+-- cap nhat Xuat kho thi so luong trong luu tru thay doi
 CREATE TRIGGER trg_XuatKho_Update
 ON XuatKhos
 AFTER UPDATE
@@ -797,13 +850,13 @@ BEGIN
 
     -- Trừ số lượng cũ
     UPDATE lt
-    SET lt.SoLuong = lt.SoLuong + d.SoLuongXuat
+    SET lt.SoLuong = lt.SoLuong + d.SoLuong
     FROM LuuTrus lt
     INNER JOIN deleted d ON lt.MaLuuTru = d.MaLuuTru;
 
     -- Trừ số lượng mới
     UPDATE lt
-    SET lt.SoLuong = lt.SoLuong - i.SoLuongXuat
+    SET lt.SoLuong = lt.SoLuong - i.SoLuong
     FROM LuuTrus lt
     INNER JOIN inserted i ON lt.MaLuuTru = i.MaLuuTru;
 
@@ -815,6 +868,7 @@ BEGIN
     END
 END;
 
+-- xoa Xuat kho thi so luong trong luu tru tang
 CREATE TRIGGER trg_XuatKho_Delete
 ON XuatKhos
 AFTER DELETE
@@ -823,11 +877,12 @@ BEGIN
     SET NOCOUNT ON;
 
     UPDATE lt
-    SET lt.SoLuong = lt.SoLuong + d.SoLuongXuat
+    SET lt.SoLuong = lt.SoLuong + d.SoLuong
     FROM LuuTrus lt
     INNER JOIN deleted d ON lt.MaLuuTru = d.MaLuuTru;
 END;
 
+-- them Xuat kho thi so luong trong luu tru giam
 CREATE TRIGGER trg_XuatKho_Insert
 ON XuatKhos
 AFTER INSERT
@@ -846,3 +901,101 @@ BEGIN
         ROLLBACK TRANSACTION;
     END
 END;
+
+select * from TaiKhoanNhanViens
+
+GO
+-- Tạo login
+CREATE LOGIN NhanVienPhucVuLogin WITH PASSWORD = 'PhucVu@2025';
+CREATE LOGIN NhanVienQuanLyKhoLogin WITH PASSWORD = 'QuanLyKho@2025';
+CREATE LOGIN AdminLogin WITH PASSWORD = 'Admin@2025';
+GO
+-- Tạo user trong cơ sở dữ liệu cho các login
+CREATE USER NhanVienPhucVuUser FOR LOGIN NhanVienPhucVuLogin;
+CREATE USER NhanVienQuanLyKhoUser FOR LOGIN NhanVienQuanLyKhoLogin;
+CREATE USER AdminUser FOR LOGIN AdminLogin;
+GO
+-- Tạo role trong cơ sở dữ liệu để quản lý quyền
+CREATE ROLE PhucVuRole;
+CREATE ROLE QuanLyKhoRole;
+CREATE ROLE AdminRole;
+GO
+-- Gán user vào các role tương ứng
+EXEC sp_addrolemember 'PhucVuRole', 'NhanVienPhucVuUser';
+EXEC sp_addrolemember 'QuanLyKhoRole', 'NhanVienQuanLyKhoUser';
+EXEC sp_addrolemember 'AdminRole', 'AdminUser';
+GO
+---- Phân quyền cho PhucVuRole
+GRANT SELECT ON [dbo].[MonAns] TO PhucVuRole;
+GRANT SELECT, INSERT ON [dbo].[HoaDons] TO PhucVuRole;
+GRANT SELECT, INSERT ON [dbo].[ChiTietHoaDons] TO PhucVuRole;
+GO
+---- Phân quyền Procedure cho PhucVuRole
+-- MonAns
+GRANT EXECUTE ON dbo.proc_ThemMonAn TO PhucVuRole;
+GRANT EXECUTE ON dbo.proc_CapNhatThongTinMonAn TO PhucVuRole;
+GRANT EXECUTE ON dbo.proc_XoaMonAn TO PhucVuRole;
+-- HoaDons
+GRANT EXECUTE ON dbo.proc_ThemHoaDon TO PhucVuRole;
+GRANT EXECUTE ON dbo.proc_CapNhatThongTinHoaDon TO PhucVuRole;
+GRANT EXECUTE ON dbo.proc_XoaHoaDon TO PhucVuRole;
+-- ChiTietHoaDons
+GRANT EXECUTE ON dbo.proc_ThemChiTietHoaDon TO PhucVuRole;
+GRANT EXECUTE ON dbo.proc_CapNhatThongTinChiTietHoaDon TO PhucVuRole;
+GRANT EXECUTE ON dbo.proc_XoaChiTietHoaDon TO PhucVuRole;
+GRANT EXECUTE ON dbo.proc_LayCTHD_MaHoaDon TO PhucVuRole;
+GO
+---- Phân quyền View cho PhucVuRole
+GRANT SELECT ON dbo.View_HoaDon TO PhucVuRole;
+GRANT SELECT ON dbo.View_ChiTietHoaDon TO PhucVuRole;
+
+GO
+---- Phân quyền cho QuanLyKhoRole
+GRANT SELECT, INSERT, UPDATE ON [dbo].[NguyenLieus] TO QuanLyKhoRole;
+GRANT SELECT, INSERT, UPDATE ON [dbo].[NhapKhos] TO QuanLyKhoRole;
+GRANT SELECT, INSERT, UPDATE ON [dbo].[XuatKhos] TO QuanLyKhoRole;
+GRANT SELECT, INSERT, UPDATE ON [dbo].[LuuTrus] TO QuanLyKhoRole;
+GO
+---- Phân quyền Procedure cho QuanLyKhoRole
+-- NguyenLieus
+GRANT EXECUTE ON dbo.proc_ThemNguyenLieu TO QuanLyKhoRole;
+GRANT EXECUTE ON dbo.proc_CapNhatThongTinNguyenLieu TO QuanLyKhoRole;
+GRANT EXECUTE ON dbo.proc_XoaNguyenLieu TO QuanLyKhoRole;
+-- NhapKhos
+GRANT EXECUTE ON dbo.proc_ThemNhapKho TO QuanLyKhoRole;
+GRANT EXECUTE ON dbo.proc_CapNhatThongTinNhapKho TO QuanLyKhoRole;
+GRANT EXECUTE ON dbo.proc_XoaNhapKho TO QuanLyKhoRole;
+-- XuatKhos
+GRANT EXECUTE ON dbo.proc_ThemXuatKho TO QuanLyKhoRole;
+GRANT EXECUTE ON dbo.proc_CapNhatThongTinXuatKho TO QuanLyKhoRole;
+GRANT EXECUTE ON dbo.proc_XoaXuatKho TO QuanLyKhoRole;
+-- LuuTrus
+GRANT EXECUTE ON dbo.proc_ThemLuuTru TO QuanLyKhoRole;
+GRANT EXECUTE ON dbo.proc_CapNhatThongTinLuuTru TO QuanLyKhoRole;
+GRANT EXECUTE ON dbo.proc_XoaLuuTru TO QuanLyKhoRole;
+GO
+---- Phân quyền View cho QuanLyKhoRole
+GRANT SELECT ON dbo.View_NguyenLieu TO QuanLyKhoRole;
+GRANT SELECT ON dbo.View_XuatKho TO QuanLyKhoRole;
+GRANT SELECT ON dbo.View_NhapKho TO QuanLyKhoRole;
+GRANT SELECT ON dbo.View_LuuTru TO QuanLyKhoRole;
+
+GO
+---- Phân quyền cho AdminRole (toàn quyền trên tất cả bảng)
+GRANT SELECT, INSERT, UPDATE, DELETE ON SCHEMA::[dbo] TO AdminRole;
+GO
+---- Phân quyền Procedure cho AdminRole(toàn quyền trên tất cả procedure)
+DECLARE @sql NVARCHAR(MAX) = '';
+SELECT @sql = @sql + 'GRANT EXECUTE ON dbo.' + name + ' TO AdminRole;' + CHAR(13)
+FROM sys.objects
+WHERE type = 'P';
+EXEC sp_executesql @sql;
+GO
+---- Phân quyền View cho AdminRole(toàn quyền trên tất cả view)
+DECLARE @sql NVARCHAR(MAX) = '';
+SELECT @sql += 'GRANT SELECT ON [' + s.name + '].[' + v.name + '] TO AdminRole;' + CHAR(13)
+FROM sys.views v
+JOIN sys.schemas s ON v.schema_id = s.schema_id;
+EXEC sp_executesql @sql;
+
+

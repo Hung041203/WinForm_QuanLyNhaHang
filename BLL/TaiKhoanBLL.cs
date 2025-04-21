@@ -85,5 +85,31 @@ namespace BLL
             string info = TaiKhoanDAL.DoiMatKhauDTO(currentPass, username, newPass, cfPass);
             return info;
         }
+        public int GetMaChucVu(TaiKhoanNhanVien taiKhoan)
+        {
+            return TaiKhoanDAL.GetMaChucVuDTO(taiKhoan);
+        }
+        public void UpdateConnectionStringBasedOnRole(int maChucVu)
+        {
+            switch (maChucVu)
+            {
+                case 2:
+                    SqlConnectionData.UpdateConnectionString("NhanVienPhucVuLogin", "PhucVu@2025");
+                    break;
+                case 3:
+                    SqlConnectionData.UpdateConnectionString("NhanVienQuanLyKhoLogin", "QuanLyKho@2025");
+                    break;
+                case 1:
+                    SqlConnectionData.UpdateConnectionString("AdminLogin", "Admin@2025");
+                    break;
+                default:
+                    throw new Exception("Chức vụ không hợp lệ");
+            }
+        }
+        public string GetConnectionString()
+        {
+            return SqlConnectionData.connectionString;
+        }
+
     }
 }

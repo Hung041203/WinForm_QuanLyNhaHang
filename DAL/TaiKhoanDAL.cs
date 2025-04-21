@@ -111,5 +111,28 @@ namespace DAL
 
             return "success_change_password";
         }
+
+        public static int GetMaChucVuDTO(TaiKhoanNhanVien taiKhoan)
+        {
+            int maChucVu = -1;
+            using (SqlConnection conn = Connect())
+            {
+                string query = "SELECT nv.MaChucVu FROM TaiKhoanNhanViens tknv " +
+                               "JOIN NhanViens nv ON tknv.MaNhanVien = nv.MaNhanVien " +
+                               "WHERE tknv.TaiKhoan = @taikhoan";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@taikhoan", taiKhoan.TaiKhoan);
+                conn.Open();
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    maChucVu = reader.GetInt32(0);
+                }
+            }
+            return maChucVu;
+        }
+
     }
 }

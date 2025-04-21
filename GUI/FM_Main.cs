@@ -20,8 +20,35 @@ namespace GUI
         {
             InitializeComponent();
             panel_Container.Controls.Add(uC_TrangChu);
+            UpdateButtonPermissions(Properties.Settings.Default.MaChucVu);
         }
+        private void UpdateButtonPermissions(int maChucVu)
+        {
+            if (maChucVu == 2)
+            {
+                button_DSNhanVien.Enabled = false;
+                button_NhapKho.Enabled = false;
+                button_XuatKho.Enabled = false;
+                button_LuuTru.Enabled = false;
+                button_DSNguyenLieu.Enabled = false;
+                button_DSKhachHang.Enabled = false;
+                button_DSKhuyenMai.Enabled = false;
+                button_DSNhaCungCap.Enabled = false;
+                button_DSChucVu.Enabled = false;
+            }
+            else if (maChucVu == 3)
+            {
+                button_DSNhanVien.Enabled = false;
+                button_DSHoaDon.Enabled = false;
+                button_DSKhachHang.Enabled = false;
+                button_DSKhuyenMai.Enabled = false;
+                button_DSNhaCungCap.Enabled = false;
+                button_DSChucVu.Enabled = false;
+                button_ChiTietHoaDon.Enabled = false;
+                button_DSMonAn.Enabled = false;
+            }
 
+        }
         private void button_ThongTinTaiKhoan_Click(object sender, EventArgs e)
         {
             panel_Container.Controls.Clear();

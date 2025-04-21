@@ -33,4 +33,3 @@ D:\Hung_WinForm\GUI\obj\Debug\GUI.UC_DSChiTietHoaDon.resources
 D:\Hung_WinForm\GUI\obj\Debug\GUI.UC_DSNhapKho.resources
 D:\Hung_WinForm\GUI\obj\Debug\GUI.UC_DSXuatKho.resources
 D:\Hung_WinForm\GUI\obj\Debug\GUI.UC_DSLuuTru.resources
-D:\Hung_WinForm\GUI\obj\Debug\GUI.UC_DSKhuyenMai2.resources

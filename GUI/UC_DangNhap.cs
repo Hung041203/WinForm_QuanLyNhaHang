@@ -87,6 +87,8 @@ namespace GUI
             {
                 Properties.Settings.Default.Username = "";
             }
+            Properties.Settings.Default.MaChucVu = taiKhoanBLL.GetMaChucVu(taiKhoan);
+            taiKhoanBLL.UpdateConnectionStringBasedOnRole(Properties.Settings.Default.MaChucVu);
             Properties.Settings.Default.Save();
 
             MessageBox.Show("Bạn đã đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
