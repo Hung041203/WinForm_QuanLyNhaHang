@@ -6,6 +6,12 @@
       "AbsoluteMoniker": "D:0:0:{9BB8A99E-B7B1-4A6F-9375-FC58805EF6C8}|..\\GUI\\GUI.csproj|d:\\hung_winform\\gui\\fm_main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{5C52791E-28C8-45F5-8DB1-472017468257}|..\\DAL\\DAL.csproj|d:\\hung_winform\\dal\\taikhoandal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{098EEED4-0FF6-4707-A15F-A7DA13F2B48A}|..\\BLL\\BLL.csproj|d:\\hung_winform\\bll\\taikhoanbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{9BB8A99E-B7B1-4A6F-9375-FC58805EF6C8}|..\\GUI\\GUI.csproj|d:\\hung_winform\\gui\\uc_dangnhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -25,7 +31,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -37,13 +43,39 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TaiKhoanBLL.cs",
+              "DocumentMoniker": "D:\\Hung_WinForm\\BLL\\TaiKhoanBLL.cs",
+              "RelativeDocumentMoniker": "..\\BLL\\TaiKhoanBLL.cs",
+              "ToolTip": "D:\\Hung_WinForm\\BLL\\TaiKhoanBLL.cs",
+              "RelativeToolTip": "..\\BLL\\TaiKhoanBLL.cs",
+              "ViewState": "AgIAAE8AAAAAAAAAAAAkwGsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-22T00:31:02.438Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "TaiKhoanDAL.cs",
+              "DocumentMoniker": "D:\\Hung_WinForm\\DAL\\TaiKhoanDAL.cs",
+              "RelativeDocumentMoniker": "..\\DAL\\TaiKhoanDAL.cs",
+              "ToolTip": "D:\\Hung_WinForm\\DAL\\TaiKhoanDAL.cs",
+              "RelativeToolTip": "..\\DAL\\TaiKhoanDAL.cs",
+              "ViewState": "AgIAAGcAAAAAAAAAAAAAAH8AAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-21T16:52:14.999Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "UC_DangNhap.cs",
               "DocumentMoniker": "D:\\Hung_WinForm\\GUI\\UC_DangNhap.cs",
               "RelativeDocumentMoniker": "..\\GUI\\UC_DangNhap.cs",
               "ToolTip": "D:\\Hung_WinForm\\GUI\\UC_DangNhap.cs",
               "RelativeToolTip": "..\\GUI\\UC_DangNhap.cs",
-              "ViewState": "AgIAAD0AAAAAAAAAAAAkwAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAkwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-21T15:46:26.656Z",
               "EditorCaption": ""
@@ -56,27 +88,27 @@
               "RelativeDocumentMoniker": "..\\GUI\\FM_Main.cs",
               "ToolTip": "D:\\Hung_WinForm\\GUI\\FM_Main.cs",
               "RelativeToolTip": "..\\GUI\\FM_Main.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABYAAABKAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAuwCwAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-21T15:30:30.791Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "DSXuatKhoDAL.cs",
               "DocumentMoniker": "D:\\Hung_WinForm\\DAL\\DSXuatKhoDAL.cs",
               "RelativeDocumentMoniker": "..\\DAL\\DSXuatKhoDAL.cs",
               "ToolTip": "D:\\Hung_WinForm\\DAL\\DSXuatKhoDAL.cs",
               "RelativeToolTip": "..\\DAL\\DSXuatKhoDAL.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAqwCAAAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAABYAAAAAAAAAAAAQwCAAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-21T15:20:45.597Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "DSKhuyenMaiDAL.cs",
               "DocumentMoniker": "D:\\Hung_WinForm\\DAL\\DSKhuyenMaiDAL.cs",
               "RelativeDocumentMoniker": "..\\DAL\\DSKhuyenMaiDAL.cs",
@@ -84,12 +116,11 @@
               "RelativeToolTip": "..\\DAL\\DSKhuyenMaiDAL.cs",
               "ViewState": "AgIAABcAAAAAAAAAAAAqwCwAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-21T14:43:00.713Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-21T14:43:00.713Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "FM_Main.cs [Design]",
               "DocumentMoniker": "D:\\Hung_WinForm\\GUI\\FM_Main.cs",
               "RelativeDocumentMoniker": "..\\GUI\\FM_Main.cs",

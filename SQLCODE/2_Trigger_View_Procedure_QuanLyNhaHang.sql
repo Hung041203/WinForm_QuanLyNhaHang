@@ -1,4 +1,103 @@
-﻿-- Doi MatKhau
+﻿-- View -- 
+-- View hiển thị hóa đơn
+CREATE VIEW View_HoaDon AS
+SELECT 
+	hd.MaHoaDon,
+	nv.TenNhanVien,
+	kh.TenKhachHang,
+	hd.NgayLap,
+	hd.TongTien
+FROM HoaDons hd
+INNER JOIN NhanViens nv ON hd.MaNhanVien = nv.MaNhanVien
+INNER JOIN KhachHangs kh ON hd.MaKhachHang = kh.MaKhachHang 
+
+--View xem thông tin nhân viên
+CREATE VIEW View_NhanVien AS
+SELECT 
+    nv.MaNhanVien,
+    nv.TenNhanVien,
+    nv.DiaChi,
+    nv.SoDienThoai,
+    nv.Email,
+    cv.TenChucVu
+FROM NhanViens nv
+LEFT JOIN ChucVus cv ON nv.MaChucVu = cv.MaChucVu;
+
+-- View hiển thị thông tin khuyến mãi
+CREATE VIEW View_KhuyenMai AS
+SELECT 
+    km.MaKhuyenMai,
+    km.TenKhuyenMai,
+    kh.MaKhachHang,
+    kh.TenKhachHang,
+    km.DaDung,
+    km.NgayHetHan,
+    -- Trạng thái khuyến mãi hiển thị dễ hiểu
+    CASE 
+        WHEN km.DaDung = 1 THEN N'Đã dùng'
+        WHEN km.NgayHetHan < GETDATE() THEN N'Hết hạn'
+        ELSE N'Còn hạn'
+    END AS TrangThai
+FROM KhuyenMais km
+JOIN KhachHangs kh ON km.MaKhachHang = kh.MaKhachHang;
+
+-- View hiển thị danh mục nguyên liệu
+CREATE VIEW View_NguyenLieu AS
+SELECT 
+    nl.MaNguyenLieu,
+	nl.TenNguyenLieu,
+	nl.DonViTinh,
+	nl.Gia,
+	ncc.TenNhaCungCap
+FROM NguyenLieus nl
+LEFT JOIN NhaCungCaps ncc ON nl.MaNhaCungCap = ncc.MaNhaCungCap;
+
+-- View nhập kho
+CREATE VIEW View_NhapKho AS
+SELECT 
+	nk.MaNhapKho,
+	nv.TenNhanVien,
+	nl.TenNguyenLieu,
+	nl.Gia,
+	nk.NgayNhap,
+	nk.SoLuong,
+	nk.TongTien,
+	nk.SoNgayHetHan
+FROM NhapKhos nk
+INNER JOIN NhanViens nv ON nk.MaNhanVien = nv.MaNhanVien
+INNER JOIN NguyenLieus nl ON nl.MaNguyenLieu = nk.MaNguyenLieu
+
+-- View xuất kho
+CREATE VIEW View_XuatKho AS
+SELECT 
+	nk.MaXuatKho,
+	nv.TenNhanVien,
+	nl.TenNguyenLieu,
+	nk.NgayXuat,
+	nk.SoLuong,
+	nk.NguyenNhanXuatKho,
+	nk.MaLuuTru
+FROM XuatKhos nk
+INNER JOIN NhanViens nv ON nk.MaNhanVien = nv.MaNhanVien
+INNER JOIN NguyenLieus nl ON nl.MaNguyenLieu = nk.MaNguyenLieu
+
+-- View Lưu Trữ
+--view luu tru
+CREATE VIEW View_LuuTru AS
+SELECT 
+	lt.MaLuuTru,
+	lt.MaNguyenLieu,
+	nv.TenNhanVien,
+	nl.TenNguyenLieu,
+	lt.NgayHetHan,
+	lt.SoLuong
+FROM LuuTrus lt
+INNER JOIN NhanViens nv ON lt.MaNhanVien = nv.MaNhanVien
+INNER JOIN NguyenLieus nl ON nl.MaNguyenLieu = lt.MaNguyenLieu
+
+-------------------------------------------------------------------------------
+-- Procedure--
+-- Đổi Mật Khẩu
 CREATE PROCEDURE proc_DoiMatKhau
 	@TaiKhoan NVARCHAR(MAX),
 	@MatKhauMoi NVARCHAR(MAX)
@@ -9,7 +108,7 @@ BEGIN
 	WHERE TaiKhoan = @TaiKhoan
 END
 
--- Lay MatKhau
+-- Lấy Mật Khẩu
 CREATE PROCEDURE proc_LayMatKhau
 	@TaiKhoan NVARCHAR(MAX)
 AS
@@ -17,7 +116,7 @@ BEGIN
 	SELECT MatKhau FROM TaiKhoanNhanViens WHERE TaiKhoan = @TaiKhoan
 END
 
--- DangNhap
+-- Đăng Nhập
 CREATE PROCEDURE proc_DangNhap
 	@TaiKhoan NVARCHAR(MAX),
 	@MatKhau NVARCHAR(MAX)
@@ -26,7 +125,7 @@ BEGIN
 	SELECT * FROM TaiKhoanNhanViens WHERE TaiKhoan = @TaiKhoan AND MatKhau = @MatKhau
 END
 
--- Lay Thong Tin Nhan Vien
+-- Lấy Thông Tin Nhân Viên
 CREATE PROCEDURE proc_LayThongTin
 AS
 BEGIN
@@ -36,7 +135,7 @@ BEGIN
 	INNER JOIN ChucVus cv ON nv.MaChucVu = cv.MaChucVu
 END
 
--- DangKy
+-- Đăng Ký
 CREATE PROCEDURE proc_DangKy
     @MaNhanVien INT,
     @TaiKhoan NVARCHAR(MAX),
@@ -64,8 +163,8 @@ BEGIN
 END
 GO
 
-
--- Nhan Vien
+-- NhanViens
+-- Cập nhật thông tin nhân viên
 CREATE PROCEDURE proc_CapNhatThongTinNhanVien
     @MaNhanVien INT,
     @TenNhanVien NVARCHAR(100),
@@ -85,6 +184,7 @@ BEGIN
     WHERE MaNhanVien = @MaNhanVien;
 END
 
+-- Thêm Nhân Viên
 CREATE PROCEDURE proc_ThemNhanVien
     @TenNhanVien NVARCHAR(100),
     @MaChucVu NVARCHAR(50),
@@ -102,8 +202,7 @@ BEGIN
 	VALUES (@MaNhanVienMoi, Null, Null);
 END
 
-DROP PROCEDURE proc_ThemNhanVien
-
+-- Xóa Nhân Viên
 CREATE PROCEDURE proc_XoaNhanVien
     @MaNhanVien INT
 AS
@@ -116,13 +215,8 @@ BEGIN
     DELETE FROM NhanViens WHERE MaNhanVien = @MaNhanVien;
 END
 
-INSERT INTO [dbo].[NhaCungCaps] ([TenNhaCungCap], [DiaChi], [SoDienThoai], [Email])
-VALUES 
-('Công Ty A', '123 Đường ABC, Quận 1, TP.HCM', '0901234567', 'contact@congtyA.com'),
-('Công Ty B', '456 Đường XYZ, Quận 3, TP.HCM', '0907654321', 'contact@congtyB.com'),
-('Công Ty C', '789 Đường MNO, Quận 5, TP.HCM', '0912345678', 'contact@congtyC.com');
-
--- Nha cung cap
+-- NhaCungCaps
+-- Thêm Nhà Cung Cấp
 CREATE PROCEDURE proc_ThemNhaCungCap
     @TenNhaCungCap NVARCHAR(100),
     @SoDienThoai NVARCHAR(15),
@@ -134,6 +228,7 @@ BEGIN
     VALUES (@TenNhaCungCap, @SoDienThoai, @DiaChi, @Email);
 END
 
+-- Cập Nhật Thông Tin Nhà Cung Cấp
 CREATE PROCEDURE proc_CapNhatThongTinNhaCungCap
     @MaNhaCungCap INT,
     @TenNhaCungCap NVARCHAR(100),
@@ -151,6 +246,7 @@ BEGIN
     WHERE MaNhaCungCap = @MaNhaCungCap;
 END
 
+-- Xóa Nhà Cung Cấp
 CREATE PROCEDURE proc_XoaNhaCungCap
     @MaNhaCungCap INT
 AS
@@ -163,7 +259,8 @@ BEGIN
     DELETE FROM NhaCungCaps WHERE MaNhaCungCap = @MaNhaCungCap;
 END
 
--- Mon An
+-- MonAns
+-- Thêm Món Ăn
 CREATE PROCEDURE proc_ThemMonAn
     @TenMonAn NVARCHAR(100),
     @Gia FLOAT,
@@ -174,6 +271,7 @@ BEGIN
     VALUES (@TenMonAn, @Gia, @SoLuong);
 END
 
+-- Cập Nhật Thông Tin Món Ăn
 CREATE PROCEDURE proc_CapNhatThongTinMonAn
     @MaMonAn INT,
     @TenMonAn NVARCHAR(100),
@@ -189,6 +287,7 @@ BEGIN
     WHERE MaMonAn = @MaMonAn;
 END
 
+-- Xóa Món Ăn
 CREATE PROCEDURE proc_XoaMonAn
     @MaMonAn INT
 AS
@@ -196,7 +295,8 @@ BEGIN
     DELETE FROM MonAns WHERE MaMonAn = @MaMonAn;
 END
 
--- Khach Hang
+-- KhachHangs
+-- Thêm Khách Hàng
 CREATE PROCEDURE proc_ThemKhachHang
     @TenKhachHang NVARCHAR(100),
     @DiaChi NVARCHAR(100),
@@ -207,6 +307,7 @@ BEGIN
     VALUES (@TenKhachHang, @DiaChi, @SoDienThoai);
 END
 
+-- Cập Nhật Thông Tin Khách Hàng
 CREATE PROCEDURE proc_CapNhatThongTinKhachHang
     @MaKhachHang INT,
     @TenKhachHang NVARCHAR(100),
@@ -222,6 +323,7 @@ BEGIN
     WHERE MaKhachHang = @MaKhachHang;
 END
 
+-- Xóa Khách Hàng
 CREATE PROCEDURE proc_XoaKhachHang
     @MaKhachHang INT
 AS
@@ -238,24 +340,8 @@ BEGIN
     DELETE FROM KhachHangs WHERE MaKhachHang = @MaKhachHang;
 END
 
--- Nguyen Lieu
-INSERT INTO NguyenLieus (TenNguyenLieu, DonViTinh, Gia, MaNhaCungCap) VALUES
-(N'Thịt Bò', N'kg', 220000, 1),        
-(N'Rau Xà Lách', N'kg', 35000, 2),     
-(N'Ớt Chuông', N'kg', 45000, 3),       
-(N'Tỏi Băm', N'gói', 15000, 1),        
-(N'Thịt Gà', N'kg', 150000, 2); 
-
-CREATE VIEW View_NguyenLieu AS
-SELECT 
-    nl.MaNguyenLieu,
-	nl.TenNguyenLieu,
-	nl.DonViTinh,
-	nl.Gia,
-	ncc.TenNhaCungCap
-FROM NguyenLieus nl
-LEFT JOIN NhaCungCaps ncc ON nl.MaNhaCungCap = ncc.MaNhaCungCap;
-
+-- NguyenLieus
+-- Cập Nhật Thông Tin Nguyên Liệu
 CREATE PROCEDURE proc_CapNhatThongTinNguyenLieu
     @MaNguyenLieu INT,
     @TenNguyenLieu NVARCHAR(100),
@@ -273,6 +359,7 @@ BEGIN
     WHERE MaNguyenLieu = @MaNguyenLieu;
 END
 
+-- Thêm Nguyên Liệu
 CREATE PROCEDURE proc_ThemNguyenLieu
     @TenNguyenLieu NVARCHAR(100),
     @DonViTinh NVARCHAR(50),
@@ -284,6 +371,7 @@ BEGIN
     VALUES (@TenNguyenLieu, @DonViTinh, @Gia, @MaNhaCungCap);
 END
 
+-- Xóa Nguyên Liệu
 CREATE PROCEDURE proc_XoaNguyenLieu
     @MaNguyenLieu INT
 AS
@@ -291,39 +379,8 @@ BEGIN
     DELETE FROM NguyenLieus WHERE MaNguyenLieu = @MaNguyenLieu;
 END
 
-select * From HoaDons
-select * From ChiTietHoaDons
-
-select * From KhachHangs
-INSERT INTO KhachHangs (TenKhachHang, DiaChi, SoDienThoai)
-VALUES (N'Le Hoa', N'789 DEF, Q3, HCM', '0988123456');
-
-INSERT INTO KhuyenMais (TenKhuyenMai, MaKhachHang, DaDung, NgayHetHan) 
-VALUES
-	(N'Giảm 10% đơn đầu tiên', 1, 0, '2025-05-01'), -- Nguyen An
-	(N'Miễn phí giao hàng', 2, 1, '2025-04-10'),    -- Tran Binh
-	(N'Giảm 50K cho đơn từ 200K', 1, 0, '2025-05-15'), -- Nguyen An
-	(N'Quà tặng kèm', 3, 0, '2025-06-01'),          -- Le Hoa
-	(N'Voucher 100K sinh nhật', 3, 1, '2025-04-30');-- Le Hoa
-
--- khuyen mai
-CREATE VIEW View_KhuyenMai AS
-SELECT 
-    km.MaKhuyenMai,
-    km.TenKhuyenMai,
-    kh.TenKhachHang,
-    CASE km.DaDung 
-        WHEN 1 THEN N'Đã dùng'
-        WHEN 0 THEN N'Chưa dùng'
-    END AS TinhTrang,
-    km.NgayHetHan
-FROM 
-    KhuyenMais km
-LEFT JOIN 
-    KhachHangs kh ON KM.MaKhachHang = KH.MaKhachHang;
-
-
--- Khuyen Mai
+-- KhuyenMais
+-- Cập Nhật Thông Tin Khuyến Mãi
 CREATE PROCEDURE proc_CapNhatThongTinKhuyenMai
     @MaKhuyenMai INT,
     @TenKhuyenMai NVARCHAR(100),
@@ -341,8 +398,7 @@ BEGIN
     WHERE MaKhuyenMai = @MaKhuyenMai;
 END
 
-DROP PROCEDURE proc_CapNhatThongTinKhuyenMai
-
+-- Thêm Khuyến Mãi
 CREATE PROCEDURE proc_ThemKhuyenMai
     @TenKhuyenMai NVARCHAR(100),
     @DaDung BIT,
@@ -354,6 +410,7 @@ BEGIN
     VALUES (@TenKhuyenMai, @DaDung, @NgayHetHan, @MaKhachHang);
 END
 
+-- Xóa Khuyến Mãi
 CREATE PROCEDURE proc_XoaKhuyenMai
     @MaKhuyenMai INT
 AS
@@ -361,59 +418,8 @@ BEGIN
     DELETE FROM KhuyenMais WHERE MaKhuyenMai = @MaKhuyenMai;
 END
 
--- Khuyen Mai 2
--- Thêm Khuyến Mãi
-CREATE PROCEDURE sp_ThemKhuyenMai
-    @TenKhuyenMai NVARCHAR(100),
-    @MaKhachHang INT,
-    @DaDung BIT,
-    @NgayHetHan DATE
-AS
-BEGIN
-    INSERT INTO KhuyenMais (TenKhuyenMai, MaKhachHang, DaDung, NgayHetHan)
-    VALUES (@TenKhuyenMai, @MaKhachHang, @DaDung, @NgayHetHan)
-END
-
--- Xóa Khuyến Mãi
-CREATE PROCEDURE sp_XoaKhuyenMai
-    @MaKhuyenMai INT
-AS
-BEGIN
-    DELETE FROM KhuyenMais
-    WHERE MaKhuyenMai = @MaKhuyenMai
-END
-
--- Sửa Khuyến Mãi
-CREATE PROCEDURE sp_SuaKhuyenMai
-    @MaKhuyenMai INT,
-    @TenKhuyenMai NVARCHAR(100),
-    @MaKhachHang INT,
-    @DaDung BIT,
-    @NgayHetHan DATE
-AS
-BEGIN
-    UPDATE KhuyenMais
-    SET 
-        TenKhuyenMai = @TenKhuyenMai,
-        MaKhachHang = @MaKhachHang,
-        DaDung = @DaDung,
-        NgayHetHan = @NgayHetHan
-    WHERE MaKhuyenMai = @MaKhuyenMai
-END
-
--- Hoa Don
-CREATE VIEW View_HoaDon AS
-SELECT 
-	hd.MaHoaDon,
-	nv.TenNhanVien,
-	kh.TenKhachHang,
-	hd.NgayLap,
-	hd.TongTien
-FROM HoaDons hd
-INNER JOIN NhanViens nv ON hd.MaNhanVien = nv.MaNhanVien
-INNER JOIN KhachHangs kh ON hd.MaKhachHang = kh.MaKhachHang
-
----
+-- HoaDons
+-- Cập Nhật Thông Tin Hóa Đơn
 CREATE PROCEDURE proc_CapNhatThongTinHoaDon
     @MaNhanVien INT,
     @MaHoaDon INT,
@@ -429,6 +435,7 @@ BEGIN
     WHERE MaHoaDon = @MaHoaDon;
 END
 
+-- Thêm Hóa Đơn
 CREATE PROCEDURE proc_ThemHoaDon
     @MaNhanVien INT,
     @MaKhachHang INT,
@@ -441,8 +448,8 @@ END
 
 DROP PROCEDURE proc_CapNhatThongTinHoaDon
 DROP PROCEDURE proc_ThemHoaDon
----
 
+-- Xóa Hơn Đơn
 CREATE PROCEDURE proc_XoaHoaDon
     @MaHoaDon INT
 AS
@@ -455,34 +462,8 @@ BEGIN
     DELETE FROM HoaDons WHERE MaHoaDon = @MaHoaDon;
 END
 
-INSERT INTO [dbo].[HoaDons] ([MaNhanVien], [MaKhachHang], [NgayLap], [TongTien])
-VALUES 
-(1, 1, '2025-04-01', 250000),
-(2, 1, '2025-04-02', 145000),
-(1, 2, '2025-04-03', 387000),
-(3, 2, '2025-04-04', 72000),
-(2, 1, '2025-04-05', 510000);
-(1, 2, '2025-04-06', 198000),
-(5, 1, '2025-04-07', 325000),
-(4, 2, '2025-04-08', 274000);
-
-DBCC CHECKIDENT ('ChiTietHoaDons', RESEED, 0)
-
--- Chi Tiet Hoa Don
-
-CREATE VIEW  View_ChiTietHoaDon AS
-SELECT 
-	cthd.MaChiTietHoaDon,
-	cthd.MaHoaDon,
-	ma.TenMonAn,
-	cthd.SoLuong,
-	ma.Gia,
-	cthd.ThanhTien
-FROM ChiTietHoaDons cthd
-INNER JOIN MonAns ma ON cthd.MaMonAn = ma.MaMonAn
-
-DROP VIEW View_ChiTietHoaDon
-
+-- ChiTietHoaDons
+-- Lấy Chi Tiết Hóa Đơn 
 CREATE PROCEDURE proc_LayCTHD_MaHoaDon
 	@MaHoaDon INT
 AS
@@ -499,6 +480,7 @@ BEGIN
 	WHERE cthd.MaHoaDon = @MaHoaDon
 END
 
+-- Cập Nhật Chi Tiết Hóa Đơn
 CREATE PROCEDURE proc_CapNhatThongTinChiTietHoaDon
 	@MaChiTietHoaDon INT,
     @SoLuong INT
@@ -510,6 +492,7 @@ BEGIN
     WHERE MaChiTietHoaDon = @MaChiTietHoaDon;
 END
 
+-- Thêm Chi Tiết Hóa Đơn
 CREATE PROCEDURE proc_ThemChiTietHoaDon
 	@MaHoaDon INT,
     @MaMonAn INT,
@@ -520,8 +503,7 @@ BEGIN
     VALUES (@MaHoaDon, @MaMonAn, @SoLuong, 0);
 END
 
-drop procedure proc_XoaChiTietHoaDon
-
+-- Xóa Chi Tiết Hóa Đơn
 CREATE PROCEDURE proc_XoaChiTietHoaDon
     @MaChiTietHoaDon INT
 AS
@@ -529,7 +511,8 @@ BEGIN
     DELETE FROM ChiTietHoaDons WHERE MaChiTietHoaDon = @MaChiTietHoaDon;
 END
 
--- NhapKho
+-- NhapKhos
+-- Cập Nhật Thông Tin Nhập Kho
 CREATE PROCEDURE proc_CapNhatThongTinNhapKho
 	@MaNhapKho INT,
     @SoLuong INT
@@ -541,6 +524,7 @@ BEGIN
     WHERE MaNhapKho = @MaNhapKho;
 END
 
+-- Thêm Nhập Kho
 CREATE PROCEDURE proc_ThemNhapKho
 	@MaNhanVien INT,
     @MaNguyenLieu INT,
@@ -553,12 +537,7 @@ BEGIN
     VALUES (@MaNhanVien, @MaNguyenLieu, @NgayNhap, @SoLuong, 0, @SoNgayHetHan);
 END
 
-DROP PROCEDURE proc_ThemNhapKho
-
-SELECT * FROM View_NhapKho
-SELECT * FROM NhanViens
-SELECT * FROM NguyenLieus
-
+-- Xóa Nhập Kho
 CREATE PROCEDURE proc_XoaNhapKho
     @MaNhapKho INT
 AS
@@ -566,7 +545,8 @@ BEGIN
     DELETE FROM NhapKhos WHERE MaNhapKho = @MaNhapKho;
 END
 
--- XuatKho
+-- XuatKhos
+-- Cập Nhật Thông Tin Xuất Kho
 CREATE PROCEDURE proc_CapNhatThongTinXuatKho
 	@MaXuatKho INT,
     @SoLuong INT,
@@ -582,6 +562,7 @@ END
 
 EXEC proc_CapNhatThongTinXuatKho @MaXuatKho = 1, @SoLuong = 10, @NguyenNhan = 'Nguyên nhân test';
 
+-- Thêm Xuất Kho
 CREATE PROCEDURE proc_ThemXuatKho
 	@MaNhanVien INT,
     @MaNguyenLieu INT,
@@ -595,6 +576,7 @@ BEGIN
     VALUES (@MaNhanVien, @MaNguyenLieu, @SoLuong, @NgayXuat, @NguyenNhan, @MaLuuTru);
 END
 
+-- Xóa Xuất Kho
 CREATE PROCEDURE proc_XoaXuatKho
     @MaXuatKho INT
 AS
@@ -602,8 +584,8 @@ BEGIN
     DELETE FROM XuatKhos WHERE MaXuatKho = @MaXuatKho;
 END
 
-
--- LuuTru
+-- LuuTrus
+-- Cập Nhật Thông Tin Lưu Trữ
 CREATE PROCEDURE proc_CapNhatThongTinLuuTru
 	@MaLuuTru INT,
     @SoLuong INT,
@@ -617,6 +599,7 @@ BEGIN
     WHERE MaLuuTru = @MaLuuTru;
 END
 
+-- Thêm Lưu Trữ
 CREATE PROCEDURE proc_ThemLuuTru
 	@MaNhanVien INT,
     @MaNguyenLieu INT,
@@ -628,6 +611,7 @@ BEGIN
     VALUES (@MaNhanVien, @MaNguyenLieu, @SoLuong, @NgayHetHan);
 END
 
+-- Xóa Lưu Trữ
 CREATE PROCEDURE proc_XoaLuuTru
     @MaLuuTru INT
 AS
@@ -635,141 +619,37 @@ BEGIN
     DELETE FROM LuuTrus WHERE MaLuuTru = @MaLuuTru;
 END
 
-
----------------------------- VIEW
---view khuyen mai
-CREATE VIEW View_KhuyenMai AS
-SELECT 
-    km.MaKhuyenMai,
-    km.TenKhuyenMai,
-    kh.MaKhachHang,
-    kh.TenKhachHang,
-    km.DaDung,
-    km.NgayHetHan,
-    -- Trạng thái khuyến mãi hiển thị dễ hiểu
-    CASE 
-        WHEN km.DaDung = 1 THEN N'Đã dùng'
-        WHEN km.NgayHetHan < GETDATE() THEN N'Hết hạn'
-        ELSE N'Còn hạn'
-    END AS TrangThai
-FROM KhuyenMais km
-JOIN KhachHangs kh ON km.MaKhachHang = kh.MaKhachHang;
-
-DROP VIEW View_KhuyenMai
-
---view nhap kho
-CREATE VIEW View_NhapKho AS
-SELECT 
-	nk.MaNhapKho,
-	nv.TenNhanVien,
-	nl.TenNguyenLieu,
-	nl.Gia,
-	nk.NgayNhap,
-	nk.SoLuong,
-	nk.TongTien,
-	nk.SoNgayHetHan
-FROM NhapKhos nk
-INNER JOIN NhanViens nv ON nk.MaNhanVien = nv.MaNhanVien
-INNER JOIN NguyenLieus nl ON nl.MaNguyenLieu = nk.MaNguyenLieu
-
---view xuat kho
-CREATE VIEW View_XuatKho AS
-SELECT 
-	nk.MaXuatKho,
-	nv.TenNhanVien,
-	nl.TenNguyenLieu,
-	nk.NgayXuat,
-	nk.SoLuong,
-	nk.NguyenNhanXuatKho,
-	nk.MaLuuTru
-FROM XuatKhos nk
-INNER JOIN NhanViens nv ON nk.MaNhanVien = nv.MaNhanVien
-INNER JOIN NguyenLieus nl ON nl.MaNguyenLieu = nk.MaNguyenLieu
-
---view luu tru
-CREATE VIEW View_LuuTru AS
-SELECT 
-	lt.MaLuuTru,
-	lt.MaNguyenLieu,
-	nv.TenNhanVien,
-	nl.TenNguyenLieu,
-	lt.NgayHetHan,
-	lt.SoLuong
-FROM LuuTrus lt
-INNER JOIN NhanViens nv ON lt.MaNhanVien = nv.MaNhanVien
-INNER JOIN NguyenLieus nl ON nl.MaNguyenLieu = lt.MaNguyenLieu
-
-drop view View_LuuTru
-SELECT * FROM View_LuuTru
-
-INSERT INTO NhapKhos (MaNhanVien, MaNguyenLieu, NgayNhap, SoLuong, TongTien, SoNgayHetHan)
-VALUES
-(1, 1, GETDATE(), 10, 10 * 220000, 60), -- Thịt Bò
-(2, 2, GETDATE(), 5, 5 * 35000, 7),     -- Rau Xà Lách
-(3, 3, GETDATE(), 3, 3 * 45000, 10),    -- Ớt Chuông
-(1, 4, GETDATE(), 20, 20 * 15000, 30),  -- Tỏi Băm
-(2, 5, GETDATE(), 8, 8 * 150000, 90);
-
-INSERT INTO [dbo].[XuatKhos] 
-    ([MaNhanVien], [MaNguyenLieu], [SoLuong], [NgayXuat], [NguyenNhanXuatKho], [MaLuuTru])
-VALUES
-    (1, 2, 5, '2025-04-19 08:00:00', N'Xuất kho để phục vụ sản xuất', 1),
-    (2, 1, 2, '2025-04-19 09:30:00', N'Xuất kho cho đơn hàng', 2),
-    (3, 3, 3, '2025-04-20 10:15:00', N'Xuất kho theo yêu cầu của quản lý', 3);
-
-
-
-INSERT INTO [dbo].[LuuTrus] 
-    ([MaNhanVien], [MaNguyenLieu], [SoLuong], [NgayHetHan])
-VALUES
-	(3, 4, 50, '2026-01-25 23:59:59'),
-	(2, 1, 200, '2026-02-15 23:59:59'),
-	(1, 2, 100, '2025-12-31 23:59:59'),
-    (2, 1, 150, '2025-11-30 23:59:59'),
-    (3, 3, 200, '2026-01-15 23:59:59');
-
-select * from LuuTrus
-
--- TRIGGER
-
-CREATE TRIGGER trg_UpdateThanhTien
-ON ChiTietHoaDons
-AFTER INSERT, UPDATE
+--------------------------------------------------------------
+-- Trigger --
+-- HoaDons
+-- Trigger kiểm tra số lượng món ăn trước khi thêm hóa đơn để ngănKha không cho tạo hóa đơn nếu món ăn đã hết hàng.
+CREATE TRIGGER trg_Check_SoLuongMonAn_Before_Insert_HoaDon
+ON HoaDons
+INSTEAD OF INSERT
 AS
 BEGIN
-    SET NOCOUNT ON;
+    DECLARE @MaHoaDon INT, @MaMonAn INT, @SoLuongDat INT;
 
-    UPDATE cthd
-    SET cthd.ThanhTien = cthd.SoLuong * ma.Gia
-    FROM ChiTietHoaDons cthd
-    INNER JOIN inserted i ON cthd.MaChiTietHoaDon = i.MaChiTietHoaDon
-    INNER JOIN MonAns ma ON i.MaMonAn = ma.MaMonAn;
+    SELECT @MaHoaDon = inserted.MaHoaDon, @MaMonAn = MA.MaMonAn, @SoLuongDat = MA.SoLuongHienCo
+    FROM inserted
+    JOIN MonAns MA ON MA.MaMonAn = inserted.MaHoaDon;
+
+    IF @SoLuongDat <= 0
+    BEGIN
+        PRINT 'Không thể tạo hóa đơn vì món ăn đã hết hàng!';
+        ROLLBACK TRANSACTION;
+        RETURN;
+    END;
+
+    INSERT INTO HoaDons (MaHoaDon, MaNhanVien, MaKhachHang, NgayLap, TongTien)
+    SELECT MaHoaDon, MaNhanVien, MaKhachHang, NgayLap, TongTien FROM inserted;
 END;
+GO
+DISABLE TRIGGER [dbo].[trg_Check_SoLuongMonAn_Before_Insert_HoaDon]
+    ON [dbo].[HoaDons];
 
-CREATE TRIGGER trg_UpdateTongTien_NhapKho
-ON NhapKhos
-AFTER INSERT, UPDATE
-AS
-BEGIN
-    SET NOCOUNT ON;
-
-    UPDATE nk
-    SET nk.TongTien = nk.SoLuong * nl.Gia
-    FROM NhapKhos nk
-    INNER JOIN inserted i ON nk.MaNhapKho = i.MaNhapKho
-    INNER JOIN NguyenLieus nl ON i.MaNguyenLieu = nl.MaNguyenLieu;
-END;
-
-DBCC CHECKIDENT ('ChiTietHoaDons', RESEED, 0)
-
-INSERT INTO ChiTietHoaDons (MaHoaDon, MaMonAn, SoLuong, ThanhTien)
-VALUES (1, 2, 3, 0); 
-INSERT INTO ChiTietHoaDons (MaHoaDon, MaMonAn, SoLuong, ThanhTien)
-VALUES (2, 1, 4, 0); 
-INSERT INTO ChiTietHoaDons (MaHoaDon, MaMonAn, SoLuong, ThanhTien)
-VALUES (1, 3, 10, 0); 
-
---Trigger Tăng số lượng món ăn nếu đã có trong hóa đơn đó
+-- ChiTietHoaDons
+-- Trigger Tăng số lượng món ăn nếu đã có trong hóa đơn đó
 CREATE TRIGGER trg_MergeChiTietHoaDonIfExist
 ON ChiTietHoaDons
 INSTEAD OF INSERT
@@ -809,7 +689,22 @@ BEGIN
     END
 END;
 
--- trigger cập nhật tổng tiền của hóa đơn dựa trên cthd
+-- Trigger tự động cập nhật thành tiền trong chi tiết hóa đơn sau mỗi lần thêm món vào hóa đơn hoặc sửa số lượng món trong hóa đơn
+CREATE TRIGGER trg_UpdateThanhTien
+ON ChiTietHoaDons
+AFTER INSERT, UPDATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    UPDATE cthd
+    SET cthd.ThanhTien = cthd.SoLuong * ma.Gia
+    FROM ChiTietHoaDons cthd
+    INNER JOIN inserted i ON cthd.MaChiTietHoaDon = i.MaChiTietHoaDon
+    INNER JOIN MonAns ma ON i.MaMonAn = ma.MaMonAn;
+END;
+
+-- Trigger cập nhật tổng tiền của hóa đơn dựa trên chi tiết hóa đơn
 CREATE TRIGGER trg_UpdateTongTien
 ON ChiTietHoaDons
 AFTER INSERT, UPDATE, DELETE
@@ -838,51 +733,122 @@ BEGIN
     WHERE hd.MaHoaDon IN (SELECT MaHoaDon FROM @MaHoaDonTable);
 END;
 
-DROP TRIGGER trg_UpdateTongTien_HoaDon
 
--- cap nhat Xuat kho thi so luong trong luu tru thay doi
-CREATE TRIGGER trg_XuatKho_Update
-ON XuatKhos
-AFTER UPDATE
+-- NhanViens
+-- Trigger kiểm tra trùng lặp email và số điện thoại của nhân viên
+CREATE TRIGGER trg_KiemTraTrungLapNhanVien
+ON NhanViens
+AFTER INSERT, UPDATE
 AS
 BEGIN
     SET NOCOUNT ON;
 
-    -- Trừ số lượng cũ
-    UPDATE lt
-    SET lt.SoLuong = lt.SoLuong + d.SoLuong
-    FROM LuuTrus lt
-    INNER JOIN deleted d ON lt.MaLuuTru = d.MaLuuTru;
+    DECLARE @ErrorMessage NVARCHAR(255);
 
-    -- Trừ số lượng mới
-    UPDATE lt
-    SET lt.SoLuong = lt.SoLuong - i.SoLuong
-    FROM LuuTrus lt
-    INNER JOIN inserted i ON lt.MaLuuTru = i.MaLuuTru;
-
-    -- Kiểm tra không âm
-    IF EXISTS (SELECT 1 FROM LuuTrus WHERE SoLuong < 0)
+    -- Kiểm tra trùng lặp số điện thoại
+    IF EXISTS (
+        SELECT I.SoDienThoai
+        FROM inserted I
+        JOIN NhanViens N ON I.SoDienThoai = N.SoDienThoai AND I.MaNhanVien <> N.MaNhanVien
+    )
     BEGIN
-        RAISERROR(N'Cập nhật không hợp lệ: Số lượng trong kho âm!', 16, 1);
-        ROLLBACK TRANSACTION;
+        SET @ErrorMessage = N'Lỗi: Số điện thoại đã tồn tại!';
+        THROW 51000, @ErrorMessage, 1;
+    END
+
+    -- Kiểm tra trùng lặp email
+    IF EXISTS (
+        SELECT I.Email
+        FROM inserted I
+        JOIN NhanViens N ON I.Email = N.Email AND I.MaNhanVien <> N.MaNhanVien
+    )
+    BEGIN
+        SET @ErrorMessage = N'Lỗi: Email đã tồn tại!';
+        THROW 51000, @ErrorMessage, 1;
     END
 END;
 
--- xoa Xuat kho thi so luong trong luu tru tang
-CREATE TRIGGER trg_XuatKho_Delete
-ON XuatKhos
-AFTER DELETE
+-- KhuyenMais
+-- Trigger tự chặn khuyến mãi nếu khuyến mãi tạo ra đã hết hạn hoặc đã dùng
+CREATE TRIGGER trg_Block_Invalid_KhuyenMai
+ON KhuyenMais
+INSTEAD OF INSERT
+AS
+BEGIN
+    IF EXISTS (
+        SELECT 1
+        FROM inserted
+        WHERE DaDung = 1 OR NgayHetHan < CAST(GETDATE() AS DATE)
+    )
+    BEGIN
+        THROW 50001, N'Lỗi: Không thể thêm khuyến mãi đã dùng hoặc đã hết hạn!', 1;
+        RETURN;
+    END
+
+-- MonAns
+-- Trigger kiểm tra trùng lặp món 
+CREATE TRIGGER trg_KiemTraTrungLapMonAn
+ON MonAns
+AFTER INSERT, UPDATE
 AS
 BEGIN
     SET NOCOUNT ON;
 
-    UPDATE lt
-    SET lt.SoLuong = lt.SoLuong + d.SoLuong
-    FROM LuuTrus lt
-    INNER JOIN deleted d ON lt.MaLuuTru = d.MaLuuTru;
+    DECLARE @ErrorMessage NVARCHAR(255);
+
+    -- Kiểm tra trùng lặp tên món ăn
+    IF EXISTS (
+        SELECT I.TenMonAn
+        FROM inserted I
+        JOIN MonAns M ON I.TenMonAn = M.TenMonAn AND I.MaMonAn <> M.MaMonAn
+    )
+    BEGIN
+        SET @ErrorMessage = N'Lỗi: Tên món ăn đã tồn tại!';
+        THROW 51000, @ErrorMessage, 1;
+    END
 END;
 
--- them Xuat kho thi so luong trong luu tru giam
+-- KhachHangs
+-- Kiểm tra trùng lặp số điện thoại của khách hàng, nếu trùng thì sẽ không cho phép nhập
+CREATE TRIGGER trg_KiemTraTrungLapSDT_KhachHang
+ON KhachHangs
+AFTER INSERT, UPDATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @ErrorMessage NVARCHAR(255);
+
+    -- Kiểm tra trùng số điện thoại
+    IF EXISTS (
+        SELECT I.SoDienThoai
+        FROM inserted I
+        JOIN KhachHangs K ON I.SoDienThoai = K.SoDienThoai AND I.MaKhachHang <> K.MaKhachHang
+    )
+    BEGIN
+        SET @ErrorMessage = N'Lỗi: Số điện thoại đã tồn tại!';
+        THROW 51000, @ErrorMessage, 1;
+    END
+END;
+
+-- NhapKhos
+--Trigger tự động tính tổng tiền khi nhập kho
+CREATE TRIGGER trg_UpdateTongTien_NhapKho
+ON NhapKhos
+AFTER INSERT, UPDATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    UPDATE nk
+    SET nk.TongTien = nk.SoLuong * nl.Gia
+    FROM NhapKhos nk
+    INNER JOIN inserted i ON nk.MaNhapKho = i.MaNhapKho
+    INNER JOIN NguyenLieus nl ON i.MaNguyenLieu = nl.MaNguyenLieu;
+END;
+
+-- XuatKhos
+-- Trigger kiểm tra và cập nhật tồn kho khi xuất kho
 CREATE TRIGGER trg_XuatKho_Insert
 ON XuatKhos
 AFTER INSERT
@@ -902,100 +868,61 @@ BEGIN
     END
 END;
 
-select * from TaiKhoanNhanViens
+-- Trigger kiểm tra và cập nhật tồn kho khi cập nhật thông tin xuất kho
+CREATE TRIGGER trg_XuatKho_Update
+ON XuatKhos
+AFTER UPDATE
+AS
+BEGIN
+    SET NOCOUNT ON;
 
-GO
--- Tạo login
-CREATE LOGIN NhanVienPhucVuLogin WITH PASSWORD = 'PhucVu@2025';
-CREATE LOGIN NhanVienQuanLyKhoLogin WITH PASSWORD = 'QuanLyKho@2025';
-CREATE LOGIN AdminLogin WITH PASSWORD = 'Admin@2025';
-GO
--- Tạo user trong cơ sở dữ liệu cho các login
-CREATE USER NhanVienPhucVuUser FOR LOGIN NhanVienPhucVuLogin;
-CREATE USER NhanVienQuanLyKhoUser FOR LOGIN NhanVienQuanLyKhoLogin;
-CREATE USER AdminUser FOR LOGIN AdminLogin;
-GO
--- Tạo role trong cơ sở dữ liệu để quản lý quyền
-CREATE ROLE PhucVuRole;
-CREATE ROLE QuanLyKhoRole;
-CREATE ROLE AdminRole;
-GO
--- Gán user vào các role tương ứng
-EXEC sp_addrolemember 'PhucVuRole', 'NhanVienPhucVuUser';
-EXEC sp_addrolemember 'QuanLyKhoRole', 'NhanVienQuanLyKhoUser';
-EXEC sp_addrolemember 'AdminRole', 'AdminUser';
-GO
----- Phân quyền cho PhucVuRole
-GRANT SELECT ON [dbo].[MonAns] TO PhucVuRole;
-GRANT SELECT, INSERT ON [dbo].[HoaDons] TO PhucVuRole;
-GRANT SELECT, INSERT ON [dbo].[ChiTietHoaDons] TO PhucVuRole;
-GO
----- Phân quyền Procedure cho PhucVuRole
--- MonAns
-GRANT EXECUTE ON dbo.proc_ThemMonAn TO PhucVuRole;
-GRANT EXECUTE ON dbo.proc_CapNhatThongTinMonAn TO PhucVuRole;
-GRANT EXECUTE ON dbo.proc_XoaMonAn TO PhucVuRole;
--- HoaDons
-GRANT EXECUTE ON dbo.proc_ThemHoaDon TO PhucVuRole;
-GRANT EXECUTE ON dbo.proc_CapNhatThongTinHoaDon TO PhucVuRole;
-GRANT EXECUTE ON dbo.proc_XoaHoaDon TO PhucVuRole;
--- ChiTietHoaDons
-GRANT EXECUTE ON dbo.proc_ThemChiTietHoaDon TO PhucVuRole;
-GRANT EXECUTE ON dbo.proc_CapNhatThongTinChiTietHoaDon TO PhucVuRole;
-GRANT EXECUTE ON dbo.proc_XoaChiTietHoaDon TO PhucVuRole;
-GRANT EXECUTE ON dbo.proc_LayCTHD_MaHoaDon TO PhucVuRole;
-GO
----- Phân quyền View cho PhucVuRole
-GRANT SELECT ON dbo.View_HoaDon TO PhucVuRole;
-GRANT SELECT ON dbo.View_ChiTietHoaDon TO PhucVuRole;
+    -- Trừ số lượng cũ
+    UPDATE lt
+    SET lt.SoLuong = lt.SoLuong + d.SoLuongXuat
+    FROM LuuTrus lt
+    INNER JOIN deleted d ON lt.MaLuuTru = d.MaLuuTru;
 
-GO
----- Phân quyền cho QuanLyKhoRole
-GRANT SELECT, INSERT, UPDATE ON [dbo].[NguyenLieus] TO QuanLyKhoRole;
-GRANT SELECT, INSERT, UPDATE ON [dbo].[NhapKhos] TO QuanLyKhoRole;
-GRANT SELECT, INSERT, UPDATE ON [dbo].[XuatKhos] TO QuanLyKhoRole;
-GRANT SELECT, INSERT, UPDATE ON [dbo].[LuuTrus] TO QuanLyKhoRole;
-GO
----- Phân quyền Procedure cho QuanLyKhoRole
--- NguyenLieus
-GRANT EXECUTE ON dbo.proc_ThemNguyenLieu TO QuanLyKhoRole;
-GRANT EXECUTE ON dbo.proc_CapNhatThongTinNguyenLieu TO QuanLyKhoRole;
-GRANT EXECUTE ON dbo.proc_XoaNguyenLieu TO QuanLyKhoRole;
--- NhapKhos
-GRANT EXECUTE ON dbo.proc_ThemNhapKho TO QuanLyKhoRole;
-GRANT EXECUTE ON dbo.proc_CapNhatThongTinNhapKho TO QuanLyKhoRole;
-GRANT EXECUTE ON dbo.proc_XoaNhapKho TO QuanLyKhoRole;
--- XuatKhos
-GRANT EXECUTE ON dbo.proc_ThemXuatKho TO QuanLyKhoRole;
-GRANT EXECUTE ON dbo.proc_CapNhatThongTinXuatKho TO QuanLyKhoRole;
-GRANT EXECUTE ON dbo.proc_XoaXuatKho TO QuanLyKhoRole;
+    -- Trừ số lượng mới
+    UPDATE lt
+    SET lt.SoLuong = lt.SoLuong - i.SoLuongXuat
+    FROM LuuTrus lt
+    INNER JOIN inserted i ON lt.MaLuuTru = i.MaLuuTru;
+
+    -- Kiểm tra không âm
+    IF EXISTS (SELECT 1 FROM LuuTrus WHERE SoLuong < 0)
+    BEGIN
+        RAISERROR(N'Cập nhật không hợp lệ: Số lượng trong kho âm!', 16, 1);
+        ROLLBACK TRANSACTION;
+    END
+END;
+
+-- Trigger khôi phục lại số lượng trong kho khi xoá phiếu xuất kho
+CREATE TRIGGER trg_XuatKho_Delete
+ON XuatKhos
+AFTER DELETE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    UPDATE lt
+    SET lt.SoLuong = lt.SoLuong + d.SoLuongXuat
+    FROM LuuTrus lt
+    INNER JOIN deleted d ON lt.MaLuuTru = d.MaLuuTru;
+END;
+
 -- LuuTrus
-GRANT EXECUTE ON dbo.proc_ThemLuuTru TO QuanLyKhoRole;
-GRANT EXECUTE ON dbo.proc_CapNhatThongTinLuuTru TO QuanLyKhoRole;
-GRANT EXECUTE ON dbo.proc_XoaLuuTru TO QuanLyKhoRole;
-GO
----- Phân quyền View cho QuanLyKhoRole
-GRANT SELECT ON dbo.View_NguyenLieu TO QuanLyKhoRole;
-GRANT SELECT ON dbo.View_XuatKho TO QuanLyKhoRole;
-GRANT SELECT ON dbo.View_NhapKho TO QuanLyKhoRole;
-GRANT SELECT ON dbo.View_LuuTru TO QuanLyKhoRole;
+-- Trigger tự động đặt số lượng nguyên liệu về 0 khi hết hạn
+CREATE TRIGGER trg_LuuTrus_CheckExpiration
+ON [dbo].[LuuTrus]
+AFTER INSERT, UPDATE, DELETE
+AS
+BEGIN
+    SET NOCOUNT ON;
 
+    -- Cập nhật SoLuong = 0 cho các bản ghi đã hết hạn
+    UPDATE [dbo].[LuuTrus]
+    SET SoLuong = 0
+    WHERE NgayHetHan < GETDATE()
+    AND SoLuong > 0;
+END;
 GO
----- Phân quyền cho AdminRole (toàn quyền trên tất cả bảng)
-GRANT SELECT, INSERT, UPDATE, DELETE ON SCHEMA::[dbo] TO AdminRole;
-GO
----- Phân quyền Procedure cho AdminRole(toàn quyền trên tất cả procedure)
-DECLARE @sql NVARCHAR(MAX) = '';
-SELECT @sql = @sql + 'GRANT EXECUTE ON dbo.' + name + ' TO AdminRole;' + CHAR(13)
-FROM sys.objects
-WHERE type = 'P';
-EXEC sp_executesql @sql;
-GO
----- Phân quyền View cho AdminRole(toàn quyền trên tất cả view)
-DECLARE @sql NVARCHAR(MAX) = '';
-SELECT @sql += 'GRANT SELECT ON [' + s.name + '].[' + v.name + '] TO AdminRole;' + CHAR(13)
-FROM sys.views v
-JOIN sys.schemas s ON v.schema_id = s.schema_id;
-EXEC sp_executesql @sql;
-
-

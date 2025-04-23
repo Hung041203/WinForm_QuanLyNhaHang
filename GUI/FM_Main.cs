@@ -42,7 +42,7 @@ namespace GUI
                 button_DSHoaDon.Enabled = false;
                 button_DSKhachHang.Enabled = false;
                 button_DSKhuyenMai.Enabled = false;
-                button_DSNhaCungCap.Enabled = false;
+                //button_DSNhaCungCap.Enabled = false;
                 button_DSChucVu.Enabled = false;
                 button_ChiTietHoaDon.Enabled = false;
                 button_DSMonAn.Enabled = false;
