@@ -51,8 +51,7 @@
               "RelativeToolTip": "..\\BLL\\TaiKhoanBLL.cs",
               "ViewState": "AgIAAE8AAAAAAAAAAAAkwGsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T00:31:02.438Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-22T00:31:02.438Z"
             },
             {
               "$type": "Document",
@@ -64,8 +63,7 @@
               "RelativeToolTip": "..\\DAL\\TaiKhoanDAL.cs",
               "ViewState": "AgIAAGcAAAAAAAAAAAAAAH8AAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-21T16:52:14.999Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-21T16:52:14.999Z"
             },
             {
               "$type": "Document",
@@ -77,8 +75,7 @@
               "RelativeToolTip": "..\\GUI\\UC_DangNhap.cs",
               "ViewState": "AgIAAEMAAAAAAAAAAAAkwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-21T15:46:26.656Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-21T15:46:26.656Z"
             },
             {
               "$type": "Document",
@@ -88,7 +85,7 @@
               "RelativeDocumentMoniker": "..\\GUI\\FM_Main.cs",
               "ToolTip": "D:\\Hung_WinForm\\GUI\\FM_Main.cs",
               "RelativeToolTip": "..\\GUI\\FM_Main.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAACwAAAASAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAuwCwAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-21T15:30:30.791Z",
               "EditorCaption": ""
@@ -103,8 +100,7 @@
               "RelativeToolTip": "..\\DAL\\DSXuatKhoDAL.cs",
               "ViewState": "AgIAABYAAAAAAAAAAAAQwCAAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-21T15:20:45.597Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-21T15:20:45.597Z"
             },
             {
               "$type": "Document",
@@ -127,8 +123,7 @@
               "ToolTip": "D:\\Hung_WinForm\\GUI\\FM_Main.cs [Design]",
               "RelativeToolTip": "..\\GUI\\FM_Main.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-21T15:30:21.297Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-04-21T15:30:21.297Z"
             }
           ]
         }
